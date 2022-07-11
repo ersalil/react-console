@@ -21,38 +21,27 @@ function TableView() {
         });
     };
 
-    const dataSource = [
-        {
-          key: '1',
-          name: 'Mike',
-          age: 32,
-          address: '10 Downing Street',
-        },
-        {
-          key: '2',
-          name: 'John',
-          age: 42,
-          address: '10 Downing Street',
-        },
-      ];
-      
-      const columns = [
-        {
-          title: 'Name',
-          dataIndex: 'name',
-          key: 'name',
-        },
-        {
-          title: 'GDP',
-          dataIndex: 'gdp',
-          key: 'gdp',
-        },
-        {
-          title: 'Year',
-          dataIndex: 'year',
-          key: 'year',
-        },
-      ];
+    const columns = [
+      {
+        title: 'Name',
+        dataIndex: 'name',
+        key: 'name',
+      },
+      {
+        title: 'GDP',
+        dataIndex: 'gdp',
+        key: 'gdp',
+      },
+      {
+        title: 'Year',
+        dataIndex: 'year',
+        key: 'year',
+      },
+    ];
+
+    if (isLoading) {
+      return <section>Loading...</section>
+    }
       
     return(
           <Table dataSource={data} columns={columns} />
