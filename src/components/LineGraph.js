@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Line } from '@ant-design/plots';
+import DropDown from './DropDown';
 
 const DemoLine = () => {
     const [data, setData] = useState([]);
@@ -47,6 +48,11 @@ const DemoLine = () => {
             <section>Loading...</section>
         );
     }
-    return <Line {...config} />;
+    return (
+        <div>
+            <Line {...config} />
+            <DropDown/>
+        </div>
+    );
 };
 export default DemoLine;

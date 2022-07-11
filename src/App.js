@@ -4,7 +4,7 @@ import TableView from "./components/TableView";
 
 function App() {
   return (
-    <div><TableView /> <div><DemoLine /></div><div><DemoColumn /></div></div>
+    <div><TableView /><div><DemoLine /></div><div><DemoColumn /></div></div>
    
     
   );
