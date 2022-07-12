@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Line } from '@ant-design/plots';
 import DropDown from './DropDown';
+import ToggleButton from './ToggleButton';
 
 const DemoLine = () => {
     const [data, setData] = useState([]);
@@ -56,7 +57,7 @@ const DemoLine = () => {
     }
     return (
         <div>
-            <DropDown onChange={setLineData} itemData={itemData}/>
+            <DropDown onChange={setLineData} itemData={itemData}/><ToggleButton/>
             <Line {...config} />
             
         </div>
