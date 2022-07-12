@@ -10,12 +10,12 @@ const handleButtonClick = (e) => {
 
 const DropDown = (props) => {
     const handleMenuClick = (e) => {
-        message.info('Click on menu item.');
-        console.log('click', e.key);
+        // message.info('Click on menu item.');
+        // console.log('click', e.key);
         props.onChange(itemData[e.key-1]);
         // const itemData = props.itemData;
       };
-      var key =0
+      var key = 0;
     const itemData = ["China","Japan"];
     const finalItemData = itemData.map((item)=>{
         key +=1
