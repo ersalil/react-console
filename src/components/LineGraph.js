@@ -18,8 +18,8 @@ const DemoLine = () => {
         fetch('https://gw.alipayobjects.com/os/bmw-prod/e00d52f4-2fa6-47ee-a0d7-105dd95bde20.json')
         .then((response) => response.json())
         .then((json) => {
-            if(isToggled) {console.log("Check In Data")}
-            else console.log("On Board Data");
+            if(isToggled) {console.log("On Board Data")}
+            else console.log("Check In Data");
             setItemData(json.at(-1));
             json.splice(json.length-1,1);
             setData(json.filter((item)=>{ return item.name === shipName}));
