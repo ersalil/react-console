@@ -4,23 +4,29 @@ import DropDown from './DropDown';
 
 const DemoLine = () => {
     const [data, setData] = useState([]);
+    const [itemData, setItemData] = useState({});
     const [isLoading, setIsLoading] = useState(true);
+    const [shipName, setLineData] = useState("China");
+    // const lineData = (key) => {console.log('lineGarph',key)} ;
     
     useEffect(() => {
         asyncFetch();
-    }, []);
+    }, [shipName]);
     
     const asyncFetch = () => {
         fetch('https://gw.alipayobjects.com/os/bmw-prod/e00d52f4-2fa6-47ee-a0d7-105dd95bde20.json')
         .then((response) => response.json())
         .then((json) => {
-            setData(json);
+            setItemData(json.at(-1));
+            json.splice(json.length-1,1);
+            setData(json.filter((item)=>{ return item.name === shipName}));
             setIsLoading(false);
         })
         .catch((error) => {
             console.log('fetch data failed', error);
         });
     };
+    
     const config = {
         data,
         xField: 'year',
@@ -50,8 +56,9 @@ const DemoLine = () => {
     }
     return (
         <div>
+            <DropDown onChange={setLineData} itemData={itemData}/>
             <Line {...config} />
-            <DropDown/>
+            
         </div>
     );
 };

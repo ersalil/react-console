@@ -7,40 +7,36 @@ const handleButtonClick = (e) => {
   console.log('click left button', e);
 };
 
-const handleMenuClick = (e) => {
-  message.info('Click on menu item.');
-  console.log('click', e);
-};
 
-const menu = (
-  <Menu
-    onClick={handleMenuClick}
-    items={[
-      {
-        label: 'Disney Wish',
-        key: '1',
-        icon: <CaretRightFilled />,
-      },
-      {
-        label: 'Disney Wonder',
-        key: '2',
-        icon: <CaretRightFilled />,
-      },
-      {
-        label: 'Disney Magic',
-        key: '3',
-        icon: <CaretRightFilled />,
-      },
-    ]}
-  />
-);
+const DropDown = (props) => {
+    const handleMenuClick = (e) => {
+        message.info('Click on menu item.');
+        console.log('click', e.key);
+        props.onChange(itemData[e.key-1]);
+        // const itemData = props.itemData;
+      };
+      var key =0
+    const itemData = ["China","Japan"];
+    const finalItemData = itemData.map((item)=>{
+        key +=1
+         return{"label": item, "key":key,"icon":<CaretRightFilled />}})
+    
+    const menu = (
+        
+        <Menu
+          onClick={handleMenuClick}
+          items={finalItemData}
+        />
+      );
+      
 
-const DropDown = () => (
-  <Space wrap>
-    <Dropdown.Button onClick={handleButtonClick} overlay={menu}>
-      Select Ship
-    </Dropdown.Button>
-  </Space>
-);
+    return (
+    <Space wrap>
+        <Dropdown.Button onClick={handleButtonClick} overlay={menu}>
+        Select Ship
+        </Dropdown.Button>
+    </Space>
+    );
+    };
 
 export default DropDown;
