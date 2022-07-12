@@ -1,22 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import { Line } from '@ant-design/plots';
 import DropDown from './DropDown';
+import ToggleButton from './ToggleButton';
 
 const DemoLine = () => {
     const [data, setData] = useState([]);
     const [itemData, setItemData] = useState({});
     const [isLoading, setIsLoading] = useState(true);
+    const [isToggled, setIsToggled] = useState(true);
     const [shipName, setLineData] = useState("China");
-    // const lineData = (key) => {console.log('lineGarph',key)} ;
     
     useEffect(() => {
         asyncFetch();
-    }, [shipName]);
+    }, [shipName, isToggled]);
     
     const asyncFetch = () => {
         fetch('https://gw.alipayobjects.com/os/bmw-prod/e00d52f4-2fa6-47ee-a0d7-105dd95bde20.json')
         .then((response) => response.json())
         .then((json) => {
+            if(isToggled) {console.log("On Board Data")}
+            else console.log("Check In Data");
             setItemData(json.at(-1));
             json.splice(json.length-1,1);
             setData(json.filter((item)=>{ return item.name === shipName}));
@@ -56,7 +59,7 @@ const DemoLine = () => {
     }
     return (
         <div>
-            <DropDown onChange={setLineData} itemData={itemData}/>
+            <DropDown onChange={setLineData} itemData={itemData}/><ToggleButton onToggled={setIsToggled}/>
             <Line {...config} />
             
         </div>
