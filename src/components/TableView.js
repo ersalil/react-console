@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './TableView.css';
 import {Table} from 'antd';
 
 function TableView() {
@@ -44,7 +45,7 @@ function TableView() {
     }
       
     return(
-          <Table dataSource={data} columns={columns} />
+          <Table className='tableview' dataSource={data} columns={columns} />
     );
 }
 export default TableView;
