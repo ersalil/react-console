@@ -1,7 +1,7 @@
 import DemoColumn from "./components/BarGraph";
 import DemoLine from "./components/LineGraph";
 import TableView from "./components/TableView";
-import { Layout } from 'antd';
+import { Layout, Col, Row } from 'antd';
 import React from 'react';
 import "./App.css";
 
@@ -15,12 +15,18 @@ function App() {
       </Header>
      <Content className="content">1. TABLE VIEW</Content>
      <TableView />
-     <Content className="content">2. LINE GRAPH</Content>
-     <DemoLine />
-     <Content className="content">3. BAR GRAPH</Content>
-
-     <DemoColumn />
+     {/* <div className="graph">
+      
+     <Content className="content"></Content>
+     
+     <Content className="content"></Content>
+     
+     </div> */}
+     <Row className="graph">
+      <Col span={12} className="content">2. LINE GRAPH <DemoLine /></Col>
+      <Col span={12} className="content">3. BAR GRAPH <DemoColumn /></Col>
+    </Row>
     </Layout>
-  );
+  )
 }
 export default App;

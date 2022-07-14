@@ -8,3 +8,10 @@
     font-weight: 700;
     margin-left: 10px;
 }
+.graph{
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    width: 100%;
+}
+
