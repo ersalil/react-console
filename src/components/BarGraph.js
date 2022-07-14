@@ -2,6 +2,8 @@
 // import React, { useState, useEffect } from 'react';
 import { Column } from '@ant-design/plots';
 import './BarGraph.css';
+import ToggleButton from './ToggleButton';
+
 
 const DemoColumn = () => {
   const data = [
@@ -46,7 +48,7 @@ const DemoColumn = () => {
     yField: 'value',
     seriesField: '',
     color: ({ type }) => {
-      if (type === '10-30分' || type === '30+分') {
+      if (type === '10-30' || type === '30') {
         return paletteSemanticRed;
       }
 
@@ -70,7 +72,16 @@ const DemoColumn = () => {
       },
     },
   };
-  return <Column className="barGraph" {...config} />;
+  return (
+    <div>
+
+    <div className="button-row">
+
+    <ToggleButton />
+    </div>
+  <Column className="barGraph" {...config} />;
+    </div>
+  );
 };
 
 export default DemoColumn;
