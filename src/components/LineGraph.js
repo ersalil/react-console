@@ -30,7 +30,7 @@ const DemoLine = () => {
             console.log('fetch data failed', error);
         });
     };
-    
+
     const config = {
         data,
         xField: 'year',
