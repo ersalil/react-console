@@ -1,5 +1,4 @@
-.tableview {
-    /* width: 100%; */
+.barGraph{
     border: 1px solid;
     align-items: 'center';
     column-width: auto;
@@ -11,4 +10,5 @@
     padding-right: 5px;
     padding-bottom: 5px;
     padding-left: 10px;
+
 }

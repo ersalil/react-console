@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Line } from '@ant-design/plots';
 import DropDown from './DropDown';
 import ToggleButton from './ToggleButton';
+import "./LineGraph.css";
 
 const DemoLine = () => {
     const [data, setData] = useState([]);
@@ -44,7 +45,7 @@ const DemoLine = () => {
         position: 'top',
         },
         smooth: true,
-        // @TODO 后续会换一种动画方式
+        
         animation: {
         appear: {
             animation: 'path-in',
@@ -59,8 +60,9 @@ const DemoLine = () => {
     }
     return (
         <div>
-            <DropDown onChange={setLineData} itemData={itemData}/><ToggleButton onToggled={setIsToggled}/>
-            <Line {...config} />
+            <div className="button-row">
+            <DropDown onChange={setLineData} itemData={itemData}/><ToggleButton onToggled={setIsToggled}/> </div>
+            <Line className="lineGraph" {...config} />
             
         </div>
     );

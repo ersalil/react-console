@@ -1,0 +1,10 @@
+.header{
+    background-color: lightslategrey;
+    text-align: center;   
+}
+.content{
+    font-size: 20px;
+    margin-top: 15px;
+    font-weight: 700;
+    margin-left: 10px;
+}
