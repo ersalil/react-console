@@ -6,5 +6,10 @@
     font-size: 20px;
     margin-top: 15px;
     font-weight: 700;
-    margin-left: 10px;
+    padding-left: 10px;
 }
+.graph{
+    display: flex;
+    flex-flow: row;
+}
+

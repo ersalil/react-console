@@ -79,7 +79,7 @@ const DemoColumn = () => {
 
     <ToggleButton />
     </div>
-  <Column className="barGraph" {...config} />;
+  <Column className="barGraph" {...config} />
     </div>
   );
 };
