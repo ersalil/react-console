@@ -26,22 +26,13 @@ function App() {
       <Header className="header">
       <h1>{t("title")}</h1>
       </Header>
-<<<<<<< HEAD
       <div><button value='en' onClick={handleOnclick}>
         English
      </button>
 
-<button value='zh' onClick={handleOnclick}>
- Spainsh
-</button></div>
-     <Row className="graph">
-      <Col span={12} className="content">{t("line")} <DemoLine /></Col>
-      <Col span={12} className="content">{t("bar")}<DemoColumn /></Col>
-    </Row>
-     <Content className="content">{t("table")}
-     </Content>
-     <TableView />
-=======
+    <button value='zh' onClick={handleOnclick}>
+    Spainsh
+    </button></div>
      {/* <div className="graph">
       
      <Content className="content"></Content>
@@ -55,7 +46,6 @@ function App() {
     </Row>
     <Content className="content">TABLE VIEW</Content>
     <TableView />
->>>>>>> 9cdf3f0f18efa3a43355bf48c7936527bf49b2b5
     </Layout>
   )
 }
