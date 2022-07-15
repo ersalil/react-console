@@ -3,44 +3,33 @@ import { Line } from '@ant-design/plots';
 import DropDown from './DropDown';
 import ToggleButton from './ToggleButton';
 import "../style/LineGraph.css";
+import { UseApiLine } from '../hooks/api';
  
 const DemoLine = () => {
-    const [data, setData] = useState([]);
-    const [itemData, setItemData] = useState({});
-    const [isLoading, setIsLoading] = useState(true);
+    
+    const [itemData, setItemData] = useState(["DREAM","MAGIC","SCARLET","VALIANT"]);
     const [isToggled, setIsToggled] = useState(true);
-    const [shipName, setLineData] = useState("China");
+    const [shipName, setLineData] = useState("MAGIC");
     
+    // Data fetched for Table from Api.js
+    const [data, setData] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
     useEffect(() => {
-        asyncFetch();
+        if(isToggled) {console.log("On Board Data")}
+        else console.log("Check In Data");
+      UseApiLine(setData,setIsLoading, shipName);
     }, [shipName, isToggled]);
-    
-    const asyncFetch = () => {
-        fetch('https://gw.alipayobjects.com/os/bmw-prod/e00d52f4-2fa6-47ee-a0d7-105dd95bde20.json')
-        .then((response) => response.json())
-        .then((json) => {
-            if(isToggled) {console.log("On Board Data")}
-            else console.log("Check In Data");
-            setItemData(json.at(-1));
-            json.splice(json.length-1,1);
-            setData(json.filter((item)=>{ return item.name === shipName}));
-            setIsLoading(false);
-        })
-        .catch((error) => {
-            console.log('fetch data failed', error);
-        });
-    };
     
     const config = {
         data,
-        xField: 'year',
-        yField: 'gdp',
-        seriesField: 'name',
-        yAxis: {
-        label: {
-            formatter: (v) => `${(v / 10e8).toFixed(1)} B`,
-        },
-        },
+        xField: 'checkin_time',
+        yField: 'checkin_counts',
+        seriesField: 'ship',
+        // yAxis: {
+        // label: {
+        //     // formatter: (v) => `${(v / 10e8).toFixed(1)} B`,
+        // },
+        // },
         legend: {
         position: 'top',
         },
