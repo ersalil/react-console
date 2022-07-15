@@ -16,7 +16,7 @@ const DropDown = (props) => {
         // const itemData = props.itemData;
       };
       var key = 0;
-    const itemData = ["China","Japan"];
+    const itemData = ["DREAM","MAGIC","SCARLET","VALIANT"];
     const finalItemData = itemData.map((item)=>{
         key +=1
          return{"label": item, "key":key,"icon":<CaretRightFilled />}})
