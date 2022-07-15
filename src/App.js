@@ -31,7 +31,7 @@ function App() {
      </button>
 
     <button value='zh' onClick={handleOnclick}>
-    Spainsh
+    Spanish
     </button></div>
      {/* <div className="graph">
       
@@ -41,10 +41,10 @@ function App() {
      
      </div> */}
      <Row className="graph">
-      <Col span={12} className="content">LINE GRAPH <DemoLine /></Col>
-      <Col span={12} className="content">BAR GRAPH <DemoColumn /></Col>
+      <Col span={12} className="content">{t("line")}<DemoLine /></Col>
+      <Col span={12} className="content">{t("bar")} <DemoColumn /></Col>
     </Row>
-    <Content className="content">TABLE VIEW</Content>
+    <Content className="content">{t("table")}</Content>
     <TableView />
     </Layout>
   )
