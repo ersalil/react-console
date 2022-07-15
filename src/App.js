@@ -4,7 +4,6 @@ import TableView from "./components/TableView";
 import { Layout, Col, Row } from 'antd';
 import React from 'react';
 import "./App.css";
-import TranslationTest from "../src/components/TranslationTest";
 // import LanguageButton from "./components/LanguageButton";
 import i18n from '../src/translations/i18n';
 import { useState } from "react";
@@ -25,23 +24,22 @@ function App() {
   return (
     <Layout>
       <Header className="header">
-      <h1>EMBARKATION MONITORING</h1>
+      <h1>{t("title")}</h1>
       </Header>
       <div><button value='en' onClick={handleOnclick}>
         English
      </button>
 
 <button value='zh' onClick={handleOnclick}>
- Chinese
+ Spainsh
 </button></div>
-      <TranslationTest />
-     <Content className="content">1. TABLE VIEW
+     <Row className="graph">
+      <Col span={12} className="content">{t("line")} <DemoLine /></Col>
+      <Col span={12} className="content">{t("bar")}<DemoColumn /></Col>
+    </Row>
+     <Content className="content">{t("table")}
      </Content>
      <TableView />
-     <Row className="graph">
-      <Col span={12} className="content">2. LINE GRAPH <DemoLine /></Col>
-      <Col span={12} className="content">3. BAR GRAPH <DemoColumn /></Col>
-    </Row>
     </Layout>
   )
 }

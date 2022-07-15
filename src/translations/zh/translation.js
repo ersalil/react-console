@@ -1,4 +1,7 @@
 export const TRANSLATIONS_ZH = {
-  welcome:"欢迎使用本教程",
-  title:'monitoreo de embarque'
- };
+  welcome:"Bienvenida al tutorial",
+  title:'MONITOREO DE EMBARQUE' ,
+  table:"3. Vista de tabla",
+  line:"1. Gráfico de líneas",
+  bar:"2. Gráfico de barras"
+};
