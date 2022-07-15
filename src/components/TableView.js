@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import '../style/TableView.css';
 import {Table} from 'antd';
 
 function TableView() {
@@ -22,6 +23,7 @@ function TableView() {
     };
 
     const columns = [
+      
       {
         title: 'Name',
         dataIndex: 'name',
@@ -37,6 +39,21 @@ function TableView() {
         dataIndex: 'year',
         key: 'year',
       },
+      {
+        title: 'Year',
+        dataIndex: 'year',
+        key: 'year',
+      },
+      {
+        title: 'Year',
+        dataIndex: 'year',
+        key: 'year',
+      },
+      {
+        title: 'Year',
+        dataIndex: 'year',
+        key: 'year',
+      },
     ];
 
     if (isLoading) {
@@ -44,7 +61,7 @@ function TableView() {
     }
       
     return(
-          <Table dataSource={data} columns={columns} />
+          <Table className='tableview' dataSource={data} columns={columns} />
     );
 }
 export default TableView;
