@@ -13,8 +13,6 @@ function App() {
       <Header className="header">
       <h1>EMBARKATION MONITORING</h1>
       </Header>
-     <Content className="content">1. TABLE VIEW</Content>
-     <TableView />
      {/* <div className="graph">
       
      <Content className="content"></Content>
@@ -23,9 +21,11 @@ function App() {
      
      </div> */}
      <Row className="graph">
-      <Col span={12} className="content">2. LINE GRAPH <DemoLine /></Col>
-      <Col span={12} className="content">3. BAR GRAPH <DemoColumn /></Col>
+      <Col span={12} className="content">LINE GRAPH <DemoLine /></Col>
+      <Col span={12} className="content">BAR GRAPH <DemoColumn /></Col>
     </Row>
+    <Content className="content">1. TABLE VIEW</Content>
+    <TableView />
     </Layout>
   )
 }
