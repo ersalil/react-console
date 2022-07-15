@@ -24,7 +24,7 @@ function App() {
       <Col span={12} className="content">LINE GRAPH <DemoLine /></Col>
       <Col span={12} className="content">BAR GRAPH <DemoColumn /></Col>
     </Row>
-    <Content className="content">1. TABLE VIEW</Content>
+    <Content className="content">TABLE VIEW</Content>
     <TableView />
     </Layout>
   )
