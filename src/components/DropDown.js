@@ -1,6 +1,7 @@
 import { CaretRightFilled } from '@ant-design/icons';
 import { Dropdown, Menu, message, Space } from 'antd';
 import React from 'react';
+import { useTranslation } from "react-i18next";
 
 const handleButtonClick = (e) => {
   message.info('Click on left button.');
@@ -9,6 +10,8 @@ const handleButtonClick = (e) => {
 
 
 const DropDown = (props) => {
+  const { t } = useTranslation();
+
     const handleMenuClick = (e) => {
         // message.info('Click on menu item.');
         // console.log('click', e.key);
@@ -33,7 +36,7 @@ const DropDown = (props) => {
     return (
     <Space wrap>
         <Dropdown.Button onClick={handleButtonClick} overlay={menu}>
-        Select Ship
+        {t("select")}
         </Dropdown.Button>
     </Space>
     );

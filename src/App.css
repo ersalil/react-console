@@ -15,11 +15,4 @@
     width: 100%;
 }
 
-button{
-    color: yellowgreen;
-    background-color: violet;
-    display: flex;
-    flex-flow: row;
-    float: right;
-}
 
