@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './TableView.css';
+import '../style/TableView.css';
 import {Table} from 'antd';
 
 function TableView() {

@@ -1,7 +1,7 @@
 // Testing
 // import React, { useState, useEffect } from 'react';
 import { Column } from '@ant-design/plots';
-import './BarGraph.css';
+import '../style/BarGraph.css';
 import ToggleButton from './ToggleButton';
 
 

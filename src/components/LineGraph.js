@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Line } from '@ant-design/plots';
 import DropDown from './DropDown';
 import ToggleButton from './ToggleButton';
-import "./LineGraph.css";
-
+import "../style/LineGraph.css";
+ 
 const DemoLine = () => {
     const [data, setData] = useState([]);
     const [itemData, setItemData] = useState({});
