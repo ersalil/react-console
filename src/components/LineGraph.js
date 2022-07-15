@@ -3,8 +3,7 @@ import { Line } from '@ant-design/plots';
 import DropDown from './DropDown';
 import ToggleButton from './ToggleButton';
 import "../style/LineGraph.css";
-
-
+ 
 const DemoLine = () => {
     const [data, setData] = useState([]);
     const [itemData, setItemData] = useState({});
