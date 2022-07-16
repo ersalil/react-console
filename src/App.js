@@ -14,7 +14,7 @@ const { Header, Content } = Layout;
 
 function App() {
   const { t } = useTranslation();
-  const [language, setLanguage] = useState('en');
+  const [language, setLanguage] = useState(i18n.language);
  
   function handleOnclick(e){
     e.preventDefault();
@@ -27,7 +27,7 @@ function App() {
       <div className="header">
         <div className="empdiv"></div>
       <h1>{t("title")}</h1>
-      <select id="language" onChange={handleOnclick}>
+      <select id="language" value={language} onChange={handleOnclick}>
   <option value="en">English</option>
   <option value="zh">Spanish</option>
 
@@ -46,7 +46,7 @@ function App() {
       <Col span={1} className="content"></Col>
       <Col span={10} className="content"><DemoLine /></Col>
       <Col span={2} className="content"></Col>
-      <Col span={10} className="content">{t("bar")}<DemoColumn /></Col>
+      <Col span={10} className="content"><DemoColumn /></Col>
       <Col span={1} className="content"></Col>
     </Row>
     <Row>

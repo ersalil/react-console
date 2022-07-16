@@ -21,11 +21,12 @@ const SelectShip = (props) => {
     props.onChange(value);
   };
   return (
-  <Select
+  <Select 
     defaultValue={itemData[Object.keys(itemData)[0]][0]}
     style={{
-      width: 200,
+      width: 150, 
     }}
+    size= "small"
     onChange={handleChange}
   >
     {children}

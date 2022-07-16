@@ -3,9 +3,14 @@
 import { Column } from '@ant-design/plots';
 import '../style/BarGraph.css';
 import ToggleButton from './ToggleButton';
+import { useTranslation } from "react-i18next";
+
 
 
 const DemoColumn = () => {
+  const { t } = useTranslation();
+
+
   const data = [
     {
       type: '1-3',
@@ -75,8 +80,8 @@ const DemoColumn = () => {
   return (
     <div>
 
-    <div className="button-row">
-
+<div className="flex-row" style={{alignItems: "start", marginBottom: "10px"}}>
+     {t("bar")}
     <ToggleButton />
     </div>
   <Column className="barGraph" {...config} />

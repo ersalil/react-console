@@ -56,12 +56,12 @@ const DemoLine = () => {
         <div>
 
 
-            <div className="flex-row">
+            <div className="flex-row" style={{alignItems: "start", marginBottom: "10px"}}>
                 {t("line")}
-                <div className="flex-col">
+                <div className="flex-row" style={{gap: "10px"}}>
 
-                    <SelectShip onChange={setLineData} itemData={itemData} />
                     <ToggleButton onToggled={setIsToggled} />
+                    <SelectShip onChange={setLineData} itemData={itemData} />
                 </div>
             </div>
             <Line className="lineGraph" {...config} />
