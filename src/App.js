@@ -4,6 +4,7 @@ import TableView from "./components/TableView";
 import { Layout, Col, Row } from 'antd';
 import React from 'react';
 import "./App.css";
+import "./style/Common.css"
 // import LanguageButton from "./components/LanguageButton";
 import i18n from '../src/translations/i18n';
 import { useState } from "react";
@@ -23,29 +24,38 @@ function App() {
 
   return (
     <Layout>
-      <Header className="header">
+      <div className="header">
+        <div className="empdiv"></div>
       <h1>{t("title")}</h1>
-      </Header>
-      <div><button value='en' onClick={handleOnclick}>
+      <select id="language" onChange={handleOnclick}>
+  <option value="en">English</option>
+  <option value="zh">Spanish</option>
+
+</select>
+      </div>
+      {/* <div> 
+      <button className="btn" value='en' onClick={handleOnclick}>
         English
      </button>
 
     <button value='zh' onClick={handleOnclick}>
     Spanish
-    </button></div>
-     {/* <div className="graph">
-      
-     <Content className="content"></Content>
-     
-     <Content className="content"></Content>
-     
-     </div> */}
+    </button>
+    </div> */}    
      <Row className="graph">
-      <Col span={12} className="content">{t("line")}<DemoLine /></Col>
-      <Col span={12} className="content">{t("bar")} <DemoColumn /></Col>
+      <Col span={1} className="content"></Col>
+      <Col span={10} className="content"><DemoLine /></Col>
+      <Col span={2} className="content"></Col>
+      <Col span={10} className="content">{t("bar")}<DemoColumn /></Col>
+      <Col span={1} className="content"></Col>
     </Row>
-    <Content className="content">{t("table")}</Content>
-    <TableView />
+    <Row>
+    <Col span={1} className="content"></Col>
+    <Col span={22} className="content1">{t("table")}<TableView /></Col>
+    <Col span={1} className="content"></Col>
+
+    </Row>
+   
     </Layout>
   )
 }

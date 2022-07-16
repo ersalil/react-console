@@ -4,13 +4,17 @@ import DropDown from './DropDown';
 import ToggleButton from './ToggleButton';
 import "../style/LineGraph.css";
 import { UseApiLine } from '../hooks/api';
+import i18n from '../translations/i18n';
+import { useTranslation } from "react-i18next";
+
+
  
 const DemoLine = () => {
     
     const [itemData, setItemData] = useState(["DREAM","MAGIC","SCARLET","VALIANT"]);
     const [isToggled, setIsToggled] = useState(true);
     const [shipName, setLineData] = useState("MAGIC");
-    
+    const { t } = useTranslation();
     // Data fetched for Table from Api.js
     const [data, setData] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
@@ -49,8 +53,16 @@ const DemoLine = () => {
     }
     return (
         <div>
-            <div className="button-row">
-            <DropDown onChange={setLineData} itemData={itemData}/><ToggleButton onToggled={setIsToggled}/> </div>
+            
+            
+                <div className="flex-row">
+                {t("line")}
+                <div className="flex-col">
+           
+            <DropDown onChange={setLineData} itemData={itemData}/>
+            <ToggleButton onToggled={setIsToggled}/> 
+            </div>
+            </div>
             <Line className="lineGraph" {...config} />
             
         </div>

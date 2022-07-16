@@ -1,19 +1,47 @@
 .header{
     background-color: lightslategrey;
-    text-align: center;   
+    align-items: center; 
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px;
+    
+
+}
+.empdiv{
+    width: 100px;
 }
 .content{
     font-size: 20px;
     margin-top: 15px;
     font-weight: 700;
-    margin-left: 10px;
+    /* margin-left: 10px; */    
+}
+.content1{
+    font-size: 40px;
+    margin-top: 15px;
+    font-weight: 700;
+    text-align: center;
+    margin-top: 50px;
+    align-items: center;
+    /* margin-bottom: 80px; */
+
 }
 .graph{
     display: flex;
     flex-flow: row;
+    /* justify-content: space-between; */
     align-items: center;
-    width: 100%;
+    /* width: 100%; */
+    /* gap: 10px !important; */
 }
+#language{
+   border-radius: 10px;
+   width: 100px;
+   /* height: 40px; */
+}
+
 
 
 
