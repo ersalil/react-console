@@ -4,12 +4,13 @@ import DropDown from './DropDown';
 import ToggleButton from './ToggleButton';
 import "../style/LineGraph.css";
 import { UseApiLine } from '../hooks/api';
+import SelectShip from './SelectShip';
  
 const DemoLine = () => {
     
-    const [itemData, setItemData] = useState(["DREAM","MAGIC","SCARLET","VALIANT"]);
+    const [itemData, setItemData] = useState({});
     const [isToggled, setIsToggled] = useState(true);
-    const [shipName, setLineData] = useState("MAGIC");
+    const [shipName, setLineData] = useState("DREAM");
     
     // Data fetched for Table from Api.js
     const [data, setData] = useState([]);
@@ -50,7 +51,8 @@ const DemoLine = () => {
     return (
         <div>
             <div className="button-row">
-            <DropDown onChange={setLineData} itemData={itemData}/><ToggleButton onToggled={setIsToggled}/> </div>
+            <SelectShip onChange={setLineData} itemData={itemData}/>
+            <ToggleButton onToggled={setIsToggled}/> </div>
             <Line className="lineGraph" {...config} />
             
         </div>
