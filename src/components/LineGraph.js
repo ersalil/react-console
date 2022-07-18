@@ -25,16 +25,20 @@ const DemoLine = () => {
         UseApiLine(setData, setIsLoading, shipName);
     }, [shipName, isToggled]);
 
+    
+    var yaxis = 'checkin_counts';
+    var xaxis = 'checkin_time';
+    if(isToggled) { 
+        xaxis = 'onboard_time'
+        yaxis = 'onboard_counts';
+    }
     const config = {
         data,
-        xField: 'checkin_time',
-        yField: 'checkin_counts',
+        xField: xaxis,
+        yField: yaxis,
+        
         seriesField: 'ship',
-        // yAxis: {
-        // label: {
-        //     // formatter: (v) => `${(v / 10e8).toFixed(1)} B`,
-        // },
-        // },
+        
         legend: {
             position: 'top',
         },
