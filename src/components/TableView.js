@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import '../style/TableView.css';
+import '../style/loader.css';
 import {Col, Table} from 'antd';
 import {UseApi, UseColApi} from '../hooks/api';
 import { ApiFilled } from '@ant-design/icons';
@@ -22,7 +23,7 @@ function TableView() {
 
   // Loader is applied while the data is fetched
     if (isLoading) {
-      return <section>Loading...</section>
+      return <div className='loader'></div>
     }
   
   // Returning all the data to Table View

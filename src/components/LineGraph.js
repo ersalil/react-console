@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Line } from '@ant-design/plots';
 import ToggleButton from './ToggleButton';
 import "../style/LineGraph.css";
+import '../style/loader.css';
 import { UseApiLine } from '../hooks/api';
 import { useTranslation } from "react-i18next";
 
@@ -50,10 +51,12 @@ const DemoLine = () => {
                 duration: 5000,
             },
         },
+
+        defaultColor: 'white'
     };
     if (isLoading) {
         return (
-            <section>Loading...</section>
+            <div className='loader'></div>
         );
     }
     return (
