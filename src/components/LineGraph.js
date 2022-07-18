@@ -28,7 +28,7 @@ const DemoLine = () => {
     
     var yaxis = 'checkin_counts';
     var xaxis = 'checkin_time';
-    if(isToggled) {
+    if(isToggled) { 
         xaxis = 'onboard_time'
         yaxis = 'onboard_counts';
     }
