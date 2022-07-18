@@ -11,7 +11,7 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 
 const { Header, Content } = Layout;
-
+document.body.style.backgroundColor = "#f3f3f3";
 function App() {
   const { t } = useTranslation();
   const [language, setLanguage] = useState(i18n.language);
@@ -22,11 +22,15 @@ function App() {
     i18n.changeLanguage(e.target.value);
   }
 
+  document.body.style.backgroundColor = "#f3f3f3";
+
   return (
+    
     <Layout>
+      <div className="background">
       <div className="header">
         <div className="empdiv"></div>
-      <h1>{t("title")}</h1>
+      <h1 className="head">{t("title")}</h1>
       <select id="language" value={language} onChange={handleOnclick}>
   <option value="en">English</option>
   <option value="zh">Spanish</option>
@@ -43,20 +47,21 @@ function App() {
     </button>
     </div> */}    
      <Row className="graph">
-      <Col span={1} className="content"></Col>
+      <Col span={1} className="space"></Col>
       <Col span={10} className="content"><DemoLine /></Col>
-      <Col span={2} className="content"></Col>
+      <Col span={2} className="space"></Col>
       <Col span={10} className="content"><DemoColumn /></Col>
-      <Col span={1} className="content"></Col>
+      <Col span={1} className="space"></Col>
     </Row>
     <Row>
-    <Col span={1} className="content"></Col>
+    <Col span={1} className="space"></Col>
     <Col span={22} className="content1">{t("table")}<TableView /></Col>
-    <Col span={1} className="content"></Col>
+    <Col span={1} className="cspace"></Col>
 
     </Row>
-   
+    </div>
     </Layout>
+    
   )
 }
 export default App;
