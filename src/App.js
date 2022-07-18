@@ -56,7 +56,7 @@ function App() {
     <Row>
     <Col span={1} className="space"></Col>
     <Col span={22} className="content1">{t("table")}<TableView /></Col>
-    <Col span={1} className="cspace"></Col>
+    <Col span={1} className="space"></Col>
 
     </Row>
     </div>
