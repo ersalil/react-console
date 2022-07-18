@@ -48,6 +48,8 @@ const DemoLine = () => {
                 duration: 5000,
             },
         },
+
+        defaultColor: 'white'
     };
     if (isLoading) {
         return (
