@@ -1,3 +1,8 @@
+*{
+    font-family: sans-serif ;
+    font-weight: 10px;
+
+}
 .header{
     background-color: #bdbdbd;
     align-items: center; 
