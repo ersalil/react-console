@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Line } from '@ant-design/plots';
 import ToggleButton from './ToggleButton';
 import "../style/LineGraph.css";
+import '../style/loader.css';
 import { UseApiLine } from '../hooks/api';
 import { useTranslation } from "react-i18next";
 
@@ -25,16 +26,20 @@ const DemoLine = () => {
         UseApiLine(setData, setIsLoading, shipName);
     }, [shipName, isToggled]);
 
+    
+    var yaxis = 'checkin_counts';
+    var xaxis = 'checkin_time';
+    if(isToggled) { 
+        xaxis = 'onboard_time'
+        yaxis = 'onboard_counts';
+    }
     const config = {
         data,
-        xField: 'checkin_time',
-        yField: 'checkin_counts',
+        xField: xaxis,
+        yField: yaxis,
+        
         seriesField: 'ship',
-        // yAxis: {
-        // label: {
-        //     // formatter: (v) => `${(v / 10e8).toFixed(1)} B`,
-        // },
-        // },
+        
         legend: {
             position: 'top',
         },
@@ -51,7 +56,7 @@ const DemoLine = () => {
     };
     if (isLoading) {
         return (
-            <section>Loading...</section>
+            <div className='loader'></div>
         );
     }
     return (
