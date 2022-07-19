@@ -51,7 +51,7 @@
 
 }
 .background{
-    /* background-image: url("./asset/background.png"); */
+    background-image: url("./asset/background.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
