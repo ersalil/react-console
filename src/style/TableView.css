@@ -1,3 +1,8 @@
+.table-view-bg {
+    background:transparent;
+    /* background-color: none; */
+}
+
 .tableview {
     /* width: 100%; */
     border: 1px solid;  
@@ -12,6 +17,8 @@
     padding-right: 5px;
     padding-bottom: 5px;
     padding-left: 10px;
-
+    opacity: 0.72;
+    background: none;
+    background-color: none;
     
 }
