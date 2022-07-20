@@ -14,7 +14,7 @@
     position: relative;
     padding: 32px;
     width: 80%;
-    height: 60%;
+    height: auto;
     margin-left: 16px;
     margin-right: 16px;
     /* max-width: 640px; */
