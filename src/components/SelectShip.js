@@ -2,6 +2,7 @@ import { Select } from "antd";
 import React from "react";
 const { Option, OptGroup } = Select;
 
+
 const itemData = {
   "Disney": ["DREAM", "MAGIC", "SCARLET", "VALIANT"],
   "Virgin Voyages": ["VV1", "VV2"],
@@ -17,7 +18,6 @@ for (const [key, value] of Object.entries(itemData)) {
 
 const SelectShip = (props) => {
   const handleChange = (value) => {
-    console.log(`selected ${value}`);
     props.onChange(value);
   };
   return (

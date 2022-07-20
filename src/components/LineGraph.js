@@ -9,21 +9,20 @@ import { useTranslation } from "react-i18next";
 
 import SelectShip from './SelectShip';
 
-const DemoLine = () => {
+const DemoLine = (props) => {
 
     const [itemData, setItemData] = useState({});
     const [isToggled, setIsToggled] = useState(true);
-    // const [shipName, setLineData] = useState("MAGIC");
     const { t } = useTranslation();
     const [shipName, setLineData] = useState("DREAM");
 
-    // Data fetched for Table from Api.js
     const [data, setData] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     useEffect(() => {
         if (isToggled) { console.log("On Board Data") }
         else console.log("Check In Data");
         UseApiLine(setData, setIsLoading, shipName);
+        props.onChange(shipName);
     }, [shipName, isToggled]);
 
     
