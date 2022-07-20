@@ -38,16 +38,16 @@ function App() {
       </div>
   
      <Row className="graph">
-      <Col className="space"></Col>
+      {/* <Col className="space"></Col>
       <Col className="content"><DemoLine /></Col>
       <Col className="space"></Col>
       <Col  className="content"><DemoColumn /></Col>
+      <Col className="space"></Col> */}
       <Col className="space"></Col>
-      <Col span={1} className="space"></Col>
-      <Col span={10} className="content"><Button onClick={() => setButtonPopup1(true)}>Expand</Button><br/><DemoLine /></Col>
-      <Col span={2} className="space"></Col>
-      <Col span={10} className="content"><Button onClick={() => setButtonPopup2(true)}>Expand</Button><br/><DemoColumn /></Col>
-      <Col span={1} className="space"></Col>
+      <Col className="content"><Button onClick={() => setButtonPopup1(true)}>Expand</Button><br/><DemoLine /></Col>
+      <Col className="space"></Col>
+      <Col className="content"><Button onClick={() => setButtonPopup2(true)}>Expand</Button><br/><DemoColumn /></Col>
+      <Col className="space"></Col> 
     </Row>
     <Row>
     <Col className="space"></Col>
