@@ -40,7 +40,7 @@ function App() {
       <Col  className="content"><DemoColumn /></Col>
       <Col className="space"></Col>
     </Row>
-    <Row className="graph">
+    <Row>
     <Col className="space"></Col>
     <Col  className="content1">{t("table")}<TableView /></Col>
     <Col className="space"></Col>
