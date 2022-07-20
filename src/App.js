@@ -40,18 +40,18 @@ function App() {
   
      <Row className="graph">
       <Col className="space"></Col>
-      <Col className="content"><Button onClick={() => setButtonPopup1(true)}>Expand</Button><br/><DemoLine /></Col>
+      <Col className="content"><Button onClick={() => setButtonPopup1(true)}>Expand</Button><br/><DemoLine onChange={setShipName}/></Col>
       <Col className="space"></Col>
       <Col className="content"><Button onClick={() => setButtonPopup2(true)}>Expand</Button><br/><DemoColumn /></Col>
       <Col className="space"></Col> 
     </Row>
     <Row>
     <Col className="space"></Col>
-    <Col  className="content1">{t("table")}<TableView /></Col>
+    <Col  className="content1">{t("table")}<TableView shipName={ship}/></Col>
     <Col className="space"></Col>
 
     </Row>
-    <PopUp trigger={buttonPopup1} setTrigger={setButtonPopup1}><br/><DemoLine /></PopUp>
+    <PopUp trigger={buttonPopup1} setTrigger={setButtonPopup1}><br/><DemoLine onChange={setShipName}/></PopUp>
     <PopUp trigger={buttonPopup2} setTrigger={setButtonPopup2}><br/><DemoColumn /></PopUp>
     </div>
     </Layout>
