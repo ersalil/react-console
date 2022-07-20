@@ -2,7 +2,7 @@ export const TRANSLATIONS_EN = {
   welcome:"Welcome to the tutorial",
   title:"EMBARKATION MONITORING",
   table:"Voyage Embarkation Data",
-  line:"Last 10 embarkation analysis",
+  line:"Last 10 Embarkation Analysis",
   bar:"Busiest Hours of Embarkation",
   select:"Select Ship",
   checkin: "Check In",

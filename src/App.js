@@ -29,13 +29,12 @@ function App() {
     <Layout>
       <div className="background">
       <div className="header">
-        <div className="empdiv"></div>
+        {/* <div className="empdiv"></div> */}
       <h1 className="head">{t("title")}</h1>
-      <select id="language" value={language} onChange={handleOnclick}>
-  <option value="en">English</option>
-  <option value="zh">Spanish</option>
-
-</select>
+      {/* <select id="language" value={language} onChange={handleOnclick}>
+        <option value="en">English</option>
+        <option value="zh">Spanish</option>
+      </select> */}
       </div>
       {/* <div> 
       <button className="btn" value='en' onClick={handleOnclick}>

@@ -4,12 +4,13 @@
     font-family: 'Roboto Condensed', sans-serif;
 
 }
+
 .header{
-    background-color: rgb(177, 212, 223);
+    background-color: rgb(184, 221, 233);
     align-items: center; 
     display: flex;
     flex-flow: row;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     width: 100%;
     padding: 10px;
     height: 80px;
@@ -17,9 +18,11 @@
     background-repeat: no-repeat;
     background-size: contain;
 }
+
 .empdiv{
     width: 100px;
 }
+
 .content{
     font-size: 20px;
     margin-top: 15px;
@@ -34,6 +37,7 @@
     margin-top: 15px;
     font-weight: 700;
 }
+
 .content1{
     font-size: 40px;
     margin-top: 15px;
@@ -56,6 +60,7 @@
     /* gap: 10px !important; */
 
 }
+
 .background{
     background-image: url("./asset/background.png");
     background-repeat: no-repeat;
@@ -70,7 +75,8 @@
     font-size: 36px;
     margin-top: auto;
     font-weight: 700;
-
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #language{
@@ -78,9 +84,3 @@
    width: 100px;
    height: 30px;
 }
-
-
-
-
-
-
