@@ -29,33 +29,21 @@ function App() {
     <Layout>
       <div className="background">
       <div className="header">
-        {/* <div className="empdiv"></div> */}
       <h1 className="head">{t("title")}</h1>
-      {/* <select id="language" value={language} onChange={handleOnclick}>
-        <option value="en">English</option>
-        <option value="zh">Spanish</option>
-      </select> */}
-      </div>
-      {/* <div> 
-      <button className="btn" value='en' onClick={handleOnclick}>
-        English
-     </button>
 
-    <button value='zh' onClick={handleOnclick}>
-    Spanish
-    </button>
-    </div> */}    
+      </div>
+  
      <Row className="graph">
-      <Col span={1} className="space"></Col>
-      <Col span={10} className="content"><DemoLine /></Col>
-      <Col span={2} className="space"></Col>
-      <Col span={10} className="content"><DemoColumn /></Col>
-      <Col span={1} className="space"></Col>
+      <Col className="space"></Col>
+      <Col className="content"><DemoLine /></Col>
+      <Col className="space"></Col>
+      <Col  className="content"><DemoColumn /></Col>
+      <Col className="space"></Col>
     </Row>
-    <Row>
-    <Col span={1} className="space"></Col>
-    <Col span={22} className="content1">{t("table")}<TableView /></Col>
-    <Col span={1} className="space"></Col>
+    <Row className="graph">
+    <Col className="space"></Col>
+    <Col  className="content1">{t("table")}<TableView /></Col>
+    <Col className="space"></Col>
 
     </Row>
     </div>

@@ -6,17 +6,12 @@
 }
 
 .header{
-<<<<<<< HEAD
-    background-color: rgb(184, 221, 233);
-=======
-    background-color: rgb(209, 234, 243);
->>>>>>> ff617ce3eca36fd79b993d5b62e3b14c5fe028f8
+    background-color: rgb(111, 166, 187);
     align-items: center; 
     display: flex;
     flex-flow: row;
-    /* justify-content: space-between; */
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     height: 80px;
     background-image: url("./asset/logo.png");
     background-repeat: no-repeat;
@@ -30,8 +25,11 @@
 
 .content{
     font-size: 20px;
-    margin-top: 15px;
+    margin-top: 16px;
+    margin-left: 16px;
     font-weight: 700;
+    width: 100%;
+
     /* margin-left: 10px; */  
     background-color: transparent;  
 }
@@ -59,20 +57,13 @@
     flex-flow: row;
     /* justify-content: space-between; */
     align-items: center;
-    /* width: 100%; */
+    width: 99%;
     margin-top: 40px;
     /* gap: 10px !important; */
 
 }
 
-.background{
-    background-image: url("./asset/background.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    /* opacity: 0.9; */
-    background-color: white;
-}
+
 
 .head{
     font: bold;
