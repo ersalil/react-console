@@ -5,8 +5,6 @@ import "../style/LineGraph.css";
 import '../style/loader.css';
 import { UseApiLine } from '../hooks/api';
 import { useTranslation } from "react-i18next";
-
-
 import SelectShip from './SelectShip';
 
 const DemoLine = () => {
@@ -66,13 +64,11 @@ const DemoLine = () => {
             <div className="flex-row" style={{alignItems: "start", marginBottom: "10px"}}>
                 {t("line")}
                 <div className="flex-row" style={{gap: "10px"}}>
-
                     <ToggleButton onToggled={setIsToggled} />
                     <SelectShip onChange={setLineData} itemData={itemData} />
                 </div>
             </div>
             <Line className="lineGraph" {...config} />
-
         </div>
     );
 };
