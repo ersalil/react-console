@@ -5,6 +5,7 @@
 
 .header{
     background-color: rgb(111, 166, 187);
+    /* background-color: rgb(209, 234, 243); */
     align-items: center; 
     display: flex;
     flex-flow: row;
