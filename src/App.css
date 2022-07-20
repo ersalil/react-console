@@ -6,7 +6,11 @@
 }
 
 .header{
+<<<<<<< HEAD
     background-color: rgb(184, 221, 233);
+=======
+    background-color: rgb(209, 234, 243);
+>>>>>>> ff617ce3eca36fd79b993d5b62e3b14c5fe028f8
     align-items: center; 
     display: flex;
     flex-flow: row;
@@ -17,6 +21,7 @@
     background-image: url("./asset/logo.png");
     background-repeat: no-repeat;
     background-size: contain;
+    opacity: 0.8;
 }
 
 .empdiv{
@@ -28,8 +33,7 @@
     margin-top: 15px;
     font-weight: 700;
     /* margin-left: 10px; */  
-    /* background-color: white;   */
-    opacity: 0.9;
+    background-color: transparent;  
 }
 
 .space{
@@ -66,7 +70,7 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    opacity: 0.9;
+    /* opacity: 0.9; */
     background-color: white;
 }
 

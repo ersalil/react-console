@@ -38,7 +38,7 @@ const DemoLine = () => {
         xField: xaxis,
         yField: yaxis,
         
-        seriesField: 'ship',
+        seriesField: 'key',
         
         legend: {
             position: 'top',

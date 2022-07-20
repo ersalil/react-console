@@ -28,7 +28,7 @@ function TableView() {
   
   // Returning all the data to Table View
     return(
-          <Table className='tableview' pagination={false} dataSource={data} columns={colData} />
+          <Table rowClassName='table-view-bg' className='tableview' pagination={false} dataSource={data} columns={colData} />
     );
 }
 export default TableView;
