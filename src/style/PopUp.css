@@ -14,7 +14,11 @@
     /* position: relative; */
     padding: 32px;
     width: 80%;
+<<<<<<< HEAD:src/components/PopUp.css
     /* height: 60%; */
+=======
+    height: auto;
+>>>>>>> 8e6c5d69e7cc31862e2f69bf92b56cd1018058cd:src/style/PopUp.css
     margin-left: 16px;
     margin-right: 16px;
     /* max-width: 640px; */
