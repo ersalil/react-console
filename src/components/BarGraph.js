@@ -5,11 +5,8 @@
 // import ToggleButton from './ToggleButton';
 // import { useTranslation } from "react-i18next";
 
-
-
 // const DemoColumn = () => {
 //   const { t } = useTranslation();
-
 
 //   const data = [
 //     {
@@ -91,31 +88,44 @@
 
 // export default DemoColumn;
 
-import React, { useState, useEffect } from 'react';
-import { Column } from '@ant-design/plots';
-import '../style/BarGraph.css';
- import ToggleButton from './ToggleButton';
- import { UseApiBar } from '../hooks/api';
- import { useTranslation } from "react-i18next";
-
-
+import React, { useState, useEffect } from "react";
+import { Column } from "@ant-design/plots";
+import "../style/BarGraph.css";
+import ToggleButton from "./ToggleButton";
+import { UseApiBar } from "../hooks/api";
+import { useTranslation } from "react-i18next";
+import { Button, Modal } from "antd";
+import { FullscreenOutlined } from "@ant-design/icons";
 
 const DemoColumn = () => {
-  
-
   const [isToggled, setIsToggled] = useState(true);
   // const [shipName, setLineData] = useState("MAGIC");
   const { t } = useTranslation();
-  
-  
+
+  const [isModalVisible, setIsModalVisible] = useState(false); //popup modal
+
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
-    if (isToggled) { console.log("On Board Data") }
-        else console.log("Check In Data");
-        UseApiBar(setData, setIsLoading);
-        console.log(data);
-    }, [isToggled]);
+    if (isToggled) {
+      console.log("On Board Data");
+    } else console.log("Check In Data");
+    UseApiBar(setData, setIsLoading);
+    console.log(data);
+  }, [isToggled]);
+
+  //modal functions
+  const showModal = () => {
+    setIsModalVisible(true);
+  };
+
+  const handleOk = () => {
+    setIsModalVisible(false);
+  };
+
+  const handleCancel = () => {
+    setIsModalVisible(false);
+  };
 
   // const asyncFetch = () => {
   //   fetch('https://gw.alipayobjects.com/os/antfincdn/PC3daFYjNw/column-data.json')
@@ -125,46 +135,62 @@ const DemoColumn = () => {
   //       console.log('fetch data failed', error);
   //     });
   // };
-  var yaxis = 'checkin_counts';
-  var xaxis = 'checkin_time';
-  if(isToggled) {
-      xaxis = 'onboard_time'
-      yaxis = 'onboard_counts';
+  var yaxis = "checkin_counts";
+  var xaxis = "checkin_time";
+  if (isToggled) {
+    xaxis = "onboard_time";
+    yaxis = "onboard_counts";
   }
   const config = {
     data,
     xField: xaxis,
     yField: yaxis,
-    seriesField: 'ship',
+    seriesField: "ship",
     isGroup: true,
     columnStyle: {
       radius: [20, 20, 0, 0],
     },
   };
 
-
-
   if (isLoading) {
-    return (
-        <section>Loading...</section>
-    );
+    return <section>Loading...</section>;
   }
 
-   
-    
   return (
     <div>
-
-<div className="flex-row" style={{alignItems: "start", marginBottom: "10px"}}>
-     {t("bar")}
-  {/* <div className="flex-row" style={{gap: "10px"}}> */}
-     <ToggleButton onToggled={setIsToggled} />
-  </div>
-  <Column className="barGraph" {...config} />
+      <div
+        className="flex-row"
+        style={{ alignItems: "start", marginBottom: "10px" }}
+      >
+        {t("bar")}
+        <div className="flex-row" style={{ justifyContent: "flex-end" }}>
+          <Modal
+            title="Busiest Hour of Embarkation"
+            visible={isModalVisible}
+            onOk={handleOk}
+            onCancel={handleCancel}
+            width={1000}
+            footer={null}
+          >
+            <div
+              className="flex-row"
+              style={{ justifyContent: "flex-end", marginBottom: "10px" }}
+            >
+              <p>
+                <ToggleButton onToggled={setIsToggled} />
+              </p>
+            </div>
+            <Column className="barGraph" {...config} />
+          </Modal>
+          &nbsp;
+          <ToggleButton onToggled={setIsToggled} />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <FullscreenOutlined onClick={showModal} />
+        </div>
+      </div>
+      <Column className="barGraph" {...config} />
     </div>
-    // </div>
   );
 };
 
 export default DemoColumn;
-
