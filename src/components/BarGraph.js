@@ -1,93 +1,3 @@
-// // Testing
-// // import React, { useState, useEffect } from 'react';
-// import { Column } from '@ant-design/plots';
-// import '../style/BarGraph.css';
-// import ToggleButton from './ToggleButton';
-// import { useTranslation } from "react-i18next";
-
-// const DemoColumn = () => {
-//   const { t } = useTranslation();
-
-//   const data = [
-//     {
-//       type: '1-3',
-//       value: 0.16,
-//     },
-//     {
-//       type: '4-10',
-//       value: 0.125,
-//     },
-//     {
-//       type: '11-30',
-//       value: 0.24,
-//     },
-//     {
-//       type: '31-60',
-//       value: 0.19,
-//     },
-//     {
-//       type: '1-3',
-//       value: 0.22,
-//     },
-//     {
-//       type: '3-10',
-//       value: 0.05,
-//     },
-//     {
-//       type: '10-30',
-//       value: 0.01,
-//     },
-//     {
-//       type: '30+',
-//       value: 0.015,
-//     },
-//   ];
-//   const paletteSemanticRed = '#F4664A';
-//   const brandColor = '#5B8FF9';
-//   const config = {
-//     data,
-//     xField: 'type',
-//     yField: 'value',
-//     seriesField: '',
-//     color: ({ type }) => {
-//       if (type === '10-30' || type === '30') {
-//         return paletteSemanticRed;
-//       }
-
-//       return brandColor;
-//     },
-//     label: {
-//       content: (originData) => {
-//         const val = parseFloat(originData.value);
-
-//         if (val < 0.05) {
-//           return (val * 100).toFixed(1) + '%';
-//         }
-//       },
-//       offset: 10,
-//     },
-//     legend: false,
-//     xAxis: {
-//       label: {
-//         autoHide: true,
-//         autoRotate: false,
-//       },
-//     },
-//   };
-//   return (
-//     <div>
-
-// <div className="flex-row" style={{alignItems: "start", marginBottom: "10px"}}>
-//      {t("bar")}
-//     <ToggleButton />
-//     </div>
-//   <Column className="barGraph" {...config} />
-//     </div>
-//   );
-// };
-
-// export default DemoColumn;
-
 import React, { useState, useEffect } from "react";
 import { Column } from "@ant-design/plots";
 import "../style/BarGraph.css";
@@ -97,100 +7,110 @@ import { useTranslation } from "react-i18next";
 import { Button, Modal } from "antd";
 import { FullscreenOutlined } from "@ant-design/icons";
 
+// making a bar graph to show the data of last 5 embarkation of all ships
 const DemoColumn = () => {
-  const [isToggled, setIsToggled] = useState(true);
-  // const [shipName, setLineData] = useState("MAGIC");
-  const { t } = useTranslation();
+	const [isToggled, setIsToggled] = useState(true);
 
-  const [isModalVisible, setIsModalVisible] = useState(false); //popup modal
+	// for translating the text
+	const { t } = useTranslation();
 
-  const [data, setData] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  useEffect(() => {
-    if (isToggled) {
-      console.log("On Board Data");
-    } else console.log("Check In Data");
-    UseApiBar(setData, setIsLoading);
-    console.log(data);
-  }, [isToggled]);
+	//popup modal
+	const [isModalVisible, setIsModalVisible] = useState(false);
 
-  //modal functions
-  const showModal = () => {
-    setIsModalVisible(true);
-  };
+	const [data, setData] = useState([]);
+	const [isLoading, setIsLoading] = useState(true);
+	useEffect(() => {
+		if (isToggled) {
+			console.log("On Board Data");
+		} else console.log("Check In Data");
+		UseApiBar(setData, setIsLoading);
+		console.log(data);
+	}, [isToggled]);
 
-  const handleOk = () => {
-    setIsModalVisible(false);
-  };
+	//modal functions
+	// open modal
+	const showModal = () => {
+		setIsModalVisible(true);
+	};
 
-  const handleCancel = () => {
-    setIsModalVisible(false);
-  };
+	// close modal
+	const handleOk = () => {
+		setIsModalVisible(false);
+	};
 
-  // const asyncFetch = () => {
-  //   fetch('https://gw.alipayobjects.com/os/antfincdn/PC3daFYjNw/column-data.json')
-  //     .then((response) => response.json())
-  //     .then((json) => setData(json))
-  //     .catch((error) => {
-  //       console.log('fetch data failed', error);
-  //     });
-  // };
-  var yaxis = "checkin_counts";
-  var xaxis = "checkin_time";
-  if (isToggled) {
-    xaxis = "onboard_time";
-    yaxis = "onboard_counts";
-  }
-  const config = {
-    data,
-    xField: xaxis,
-    yField: yaxis,
-    seriesField: "ship",
-    isGroup: true,
-    columnStyle: {
-      radius: [20, 20, 0, 0],
-    },
-  };
+	const handleCancel = () => {
+		setIsModalVisible(false);
+	};
 
-  if (isLoading) {
-    return <section>Loading...</section>;
-  }
+	// if toggled, show on board data, else show check in data
+	var yaxis = "checkin_counts";
+	var xaxis = "checkin_time";
+	if (isToggled) {
+		xaxis = "onboard_time";
+		yaxis = "onboard_counts";
+	}
 
-  return (
-    <div>
-      <div
-        className="flex-row"
-        style={{ alignItems: "start", marginBottom: "10px" }}
-      >
-        {t("bar")}
-        <div className="flex-row" style={{ justifyContent: "flex-end" }}>
-          <Modal
-            title="Busiest Hour of Embarkation"
-            visible={isModalVisible}
-            onOk={handleOk}
-            onCancel={handleCancel}
-            width={1000}
-            footer={null}
-          >
-            <div
-              className="flex-row"
-              style={{ justifyContent: "flex-end", marginBottom: "10px" }}
-            >
-              <p>
-                <ToggleButton onToggled={setIsToggled} />
-              </p>
-            </div>
-            <Column className="barGraph" {...config} />
-          </Modal>
-          &nbsp;
-          <ToggleButton onToggled={setIsToggled} />
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <FullscreenOutlined onClick={showModal} />
-        </div>
-      </div>
-      <Column className="barGraph" {...config} />
-    </div>
-  );
+	// if data is empty, show a loading screen
+	const config = {
+		data,
+		xField: xaxis,
+		yField: yaxis,
+		seriesField: "ship",
+		isGroup: true,
+		columnStyle: {
+			radius: [20, 20, 0, 0],
+		},
+	};
+
+	if (isLoading) {
+		return <section>Loading...</section>;
+	}
+
+	// if data is not empty, show the bar graph
+	return (
+		<div>
+			<div
+				className="flex-row"
+				style={{ alignItems: "start", marginBottom: "10px" }}
+			>
+				{/* heading of the graph */}
+				{t("bar")}
+				<div
+					className="flex-row"
+					style={{ justifyContent: "flex-end" }}
+				>
+					{/* modal button */}
+					<Modal
+						title="Busiest Hour of Embarkation"
+						visible={isModalVisible}
+						onOk={handleOk}
+						onCancel={handleCancel}
+						width={1000}
+						footer={null}
+					>
+						<div
+							className="flex-row"
+							style={{
+								justifyContent: "flex-end",
+								marginBottom: "10px",
+							}}
+						>
+							<p>
+								<ToggleButton onToggled={setIsToggled} />
+							</p>
+						</div>
+						<Column className="barGraph" {...config} />
+					</Modal>
+					&nbsp;
+					{/* toggle button */}
+					<ToggleButton onToggled={setIsToggled} />
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<FullscreenOutlined onClick={showModal} />
+				</div>
+			</div>
+			<Column className="barGraph" {...config} />
+		</div>
+	);
 };
 
 export default DemoColumn;
