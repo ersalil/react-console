@@ -4,7 +4,7 @@ import "../style/BarGraph.css";
 import ToggleButton from "./ToggleButton";
 import { UseApiBar } from "../hooks/api";
 import { useTranslation } from "react-i18next";
-import { Button, Modal } from "antd";
+import { Modal } from "antd";
 import { FullscreenOutlined } from "@ant-design/icons";
 
 // making a bar graph to show the data of last 5 embarkation of all ships
@@ -31,11 +31,6 @@ const DemoColumn = () => {
 	// open modal
 	const showModal = () => {
 		setIsModalVisible(true);
-	};
-
-	// close modal
-	const handleOk = () => {
-		setIsModalVisible(false);
 	};
 
 	const handleCancel = () => {
@@ -83,10 +78,10 @@ const DemoColumn = () => {
 					<Modal
 						title="Busiest Hour of Embarkation"
 						visible={isModalVisible}
-						onOk={handleOk}
 						onCancel={handleCancel}
-						width={1000}
+						width={1200}
 						footer={null}
+						centered
 					>
 						<div
 							className="flex-row"
