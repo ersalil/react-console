@@ -4,7 +4,7 @@ import "../style/BarGraph.css";
 import ToggleButton from "./ToggleButton";
 import { UseApiBar } from "../hooks/api";
 import { useTranslation } from "react-i18next";
-import { Button, Modal } from "antd";
+import { Modal } from "antd";
 import { FullscreenOutlined } from "@ant-design/icons";
 
 // making a bar graph to show the data of last 5 embarkation of all ships

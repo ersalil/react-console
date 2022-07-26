@@ -3,7 +3,7 @@ import React from "react";
 const { Option, OptGroup } = Select;
 
 const itemData = {
-  "Disney": ["DREAM", "MAGIC", "SCARLET", "VALIANT"],
+  Disney: ["DREAM", "MAGIC", "SCARLET", "VALIANT"],
   "Virgin Voyages": ["VV1", "VV2"],
 };
 const children = [];
@@ -21,16 +21,16 @@ const SelectShip = (props) => {
     props.onChange(value);
   };
   return (
-  <Select 
-    defaultValue={itemData[Object.keys(itemData)[0]][0]}
-    style={{
-      width: 150, 
-    }}
-    size= "small"
-    onChange={handleChange}
-  >
-    {children}
-  </Select>
+    <Select
+      defaultValue={itemData[Object.keys(itemData)[0]][0]}
+      style={{
+        width: 150,
+      }}
+      size="small"
+      onChange={handleChange}
+    >
+      {children}
+    </Select>
   );
 };
 
