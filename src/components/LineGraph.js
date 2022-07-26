@@ -39,11 +39,6 @@ const DemoLine = () => {
 		setIsModalVisible(true);
 	};
 
-  // close modal
-	const handleOk = () => {
-		setIsModalVisible(false);
-	};
-
 	const handleCancel = () => {
 		setIsModalVisible(false);
 	};
@@ -92,10 +87,10 @@ const DemoLine = () => {
 					<Modal
 						title="Last 10 Embarkation Analysis"
 						visible={isModalVisible}
-						onOk={handleOk}
 						onCancel={handleCancel}
-						width={1000}
+						width={1200}
 						footer={null}
+						centered
 					>
 						<div
 							className="flex-row"

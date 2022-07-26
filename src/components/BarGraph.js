@@ -33,11 +33,6 @@ const DemoColumn = () => {
 		setIsModalVisible(true);
 	};
 
-	// close modal
-	const handleOk = () => {
-		setIsModalVisible(false);
-	};
-
 	const handleCancel = () => {
 		setIsModalVisible(false);
 	};
@@ -83,10 +78,10 @@ const DemoColumn = () => {
 					<Modal
 						title="Busiest Hour of Embarkation"
 						visible={isModalVisible}
-						onOk={handleOk}
 						onCancel={handleCancel}
-						width={1000}
+						width={1200}
 						footer={null}
+						centered
 					>
 						<div
 							className="flex-row"
