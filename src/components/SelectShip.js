@@ -2,11 +2,14 @@ import { Select } from "antd";
 import React from "react";
 const { Option, OptGroup } = Select;
 
+// making options and optgroups
 const itemData = {
   "Disney": ["DREAM", "MAGIC", "SCARLET", "VALIANT"],
   "Virgin Voyages": ["VV1", "VV2"],
 };
 const children = [];
+
+// dividing sections for Disney and Virgin Voyages
 for (const [key, value] of Object.entries(itemData)) {
   const data = value.map((ship) => {
     return <Option value={ship}>{ship}</Option>;
@@ -15,6 +18,7 @@ for (const [key, value] of Object.entries(itemData)) {
   console.log(key, value);
 }
 
+// SelectShip component and handling the change of the select
 const SelectShip = (props) => {
   const handleChange = (value) => {
     console.log(`selected ${value}`);
