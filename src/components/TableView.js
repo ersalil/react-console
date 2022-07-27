@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import '../style/TableView.css';
 import '../style/loader.css';
 import {Col, Table} from 'antd';
-import {UseApi, UseColApi} from '../hooks/api';
+import {UseApi, UseApiTemp, UseColApi} from '../hooks/api';
 import { ApiFilled } from '@ant-design/icons';
 import SelectShip from './SelectShip';
 
@@ -11,11 +11,13 @@ function TableView(props) {
     const [data, setData] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     useEffect(() => {
-      UseApi(setData,setIsLoading);
+      UseApiTemp(setData,setIsLoading);
     }, []);
 
     const filter = [];
-    for (const item of data) {if (item['ship'] === props.shipName) {filter.push(item)}};
+    console.log(data, props.shipName)
+    for (const item of data) {if (item['code'] === props.shipName) {filter.push(item)}};
+    console.log(filter)
 
   // Columns fetched from Api.js
     const [colData, setColData] = useState([]);

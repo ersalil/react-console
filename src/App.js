@@ -17,7 +17,7 @@ document.body.style.backgroundColor = "#f3f3f3";
 function App() {
   const { t } = useTranslation();
   const [language, setLanguage] = useState(i18n.language);
-  const [ship, setShipName] = useState("DREAM");
+  const [ship, setShipName] = useState("DM");
   const [buttonPopup1, setButtonPopup1] = useState(false);
   const [buttonPopup2, setButtonPopup2] = useState(false);
  
