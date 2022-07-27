@@ -12,7 +12,7 @@ const DemoLine = (props) => {
     const [itemData, setItemData] = useState({});
     const [isToggled, setIsToggled] = useState(true);
     const { t } = useTranslation();
-    const [shipName, setLineData] = useState("DREAM");
+    const [shipName, setLineData] = useState("DM");
 
     const [data, setData] = useState([]);
     const [isLoading, setIsLoading] = useState(true);

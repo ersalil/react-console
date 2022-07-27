@@ -4,8 +4,7 @@ const { Option, OptGroup } = Select;
 
 
 const itemData = {
-  "Disney": ["DREAM", "MAGIC", "SCARLET", "VALIANT"],
-  "Virgin Voyages": ["VV1", "VV2"],
+  "Disney": ["DM", "DF", "DW"]
 };
 const children = [];
 for (const [key, value] of Object.entries(itemData)) {
