@@ -7,6 +7,8 @@ const itemData = {
   "Disney": ["DM", "DF", "DW"]
 };
 const children = [];
+
+// dividing sections for Disney and Virgin Voyages
 for (const [key, value] of Object.entries(itemData)) {
   const data = value.map((ship) => {
     return <Option value={ship}>{ship}</Option>;
@@ -15,21 +17,22 @@ for (const [key, value] of Object.entries(itemData)) {
   console.log(key, value);
 }
 
+// SelectShip component and handling the change of the select
 const SelectShip = (props) => {
   const handleChange = (value) => {
     props.onChange(value);
   };
   return (
-  <Select 
-    defaultValue={itemData[Object.keys(itemData)[0]][0]}
-    style={{
-      width: 150, 
-    }}
-    size= "small"
-    onChange={handleChange}
-  >
-    {children}
-  </Select>
+    <Select
+      defaultValue={itemData[Object.keys(itemData)[0]][0]}
+      style={{
+        width: 150,
+      }}
+      size="small"
+      onChange={handleChange}
+    >
+      {children}
+    </Select>
   );
 };
 

@@ -1,9 +1,8 @@
 import { Switch } from 'antd';
 import React, { useState } from 'react';
-// import i18n from './translations/i18n';
-// import { useState } from "react";
 import { useTranslation } from "react-i18next";
 
+// for language support
 const ToggleButton = (props) => {
     const { t } = useTranslation();
 
