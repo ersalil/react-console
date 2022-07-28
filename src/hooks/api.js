@@ -11,9 +11,10 @@
 //       console.log("fetch data failed", error);
 //     });
 // };
+const url = 'https://a8ec-182-64-76-131.in.ngrok.io'
 
 export const UseColApi = (props) => {
-  fetch("http://localhost:8000/ship/col")
+  fetch(url+"/ship/col")
     .then((response) => response.json())
     .then((json) => {
       props(json);
@@ -24,7 +25,7 @@ export const UseColApi = (props) => {
 };
 
 export const UseApiBar = (props, load) => {
-  fetch("http://localhost:8000/bar/data")
+  fetch(url+"/bar/data")
     .then((response) => response.json())
     .then((json) => {
       props(json);
@@ -37,7 +38,7 @@ export const UseApiBar = (props, load) => {
 };
 
 export const UseApiLine = (setD, load, shipName) => {
-  fetch("http://localhost:8000/line/data")
+  fetch(url+"/sa")
     .then((response) => response.json())
     .then((json) => {
       console.log(json[shipName]);
@@ -64,7 +65,7 @@ async function fetchWithTimeout(resource, options = {}) {
 //Table Data with exceptional handling
 export async function UseApiTemp(props, load) {
   try {
-    const response = await fetchWithTimeout("http://localhost:8000/table/data", {
+    const response = await fetchWithTimeout(url+"/table/data", {
       timeout: 10000,
     });
     const data = await response.json();
