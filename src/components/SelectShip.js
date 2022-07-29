@@ -4,7 +4,7 @@ const { Option, OptGroup } = Select;
 
 
 const itemData = {
-  "Disney": ["DM", "DF", "DW"]
+  "Disney": ["DM", "DF", "DW", "DD", "WW"]
 };
 const children = [];
 
