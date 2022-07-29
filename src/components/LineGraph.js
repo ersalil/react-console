@@ -45,18 +45,21 @@ const DemoLine = (props) => {
 	};
 
   // if toggled, show on board data, else show check in data
-	var yaxis = "checkin_counts";
-	var xaxis = "checkin_time";
+	var yaxis = "checkedin_couch";
+	var xaxis = "checkedin_time";
 	if (isToggled) {
 		xaxis = "onboard_time";
-		yaxis = "onboard_counts";
+		yaxis = "onboard_couch";
 	}
 	const config = {
 		data,
 		xField: xaxis,
 		yField: yaxis,
+		// xAxis: {
+		// 	type: 'time',
+		//   },
 
-		seriesField: "key",
+		seriesField: "voyage_id",
 
 		legend: {
 			position: "top",
@@ -66,7 +69,7 @@ const DemoLine = (props) => {
 		animation: {
 			appear: {
 				animation: "path-in",
-				duration: 5000,
+				duration: 2000,
 			},
 		},
 
