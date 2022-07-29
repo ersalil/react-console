@@ -11,7 +11,7 @@
 //       console.log("fetch data failed", error);
 //     });
 // };
-const url = 'https://a8ec-182-64-76-131.in.ngrok.io'
+const url = 'https://28e8-182-73-51-26.in.ngrok.io'
 
 export const UseColApi = (props) => {
   fetch(url+"/ship/col")
