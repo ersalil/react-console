@@ -53,13 +53,31 @@ const DemoLine = (props) => {
 	}
 	const config = {
 		data,
+
 		xField: xaxis,
 		yField: yaxis,
-		// xAxis: {
-		// 	type: 'time',
-		//   },
+
+		// xAxis: [{
+		// 	title: t("Time"),
+		// 	type: "time",
+		// 	ticks: {
+
+		// 		min: "00:00",
+		// 		max: "23:00",
+		// 		interval: "1h"
+		// 	}
+		// }],
+
+		yAxis: [{
+			ticks: {
+				min: 0,
+				max: 100,
+				stepSize: 20
+			}
+		}],
 
 		seriesField: "voyage_id",
+
 
 		legend: {
 			position: "top",
@@ -120,7 +138,7 @@ const DemoLine = (props) => {
 					<FullscreenOutlined onClick={showModal} />
 				</div>
 			</div>
-			<Line className="lineGraph" {...config} />
+			<Line className="lineGraph" data={{labels: ["00:00","06.00","12:00","18:00"]}} {...config} />
 		</div>
 	);
 };
