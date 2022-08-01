@@ -57,9 +57,9 @@ const DemoColumn = () => {
 		},
 	};
 
-	if (isLoading) {
-		return <section>Loading...</section>;
-	}
+	// if (isLoading) {
+	// 	return <section>Loading...</section>;
+	// }
 
 	// if data is not empty, show the bar graph
 	return (
@@ -103,7 +103,7 @@ const DemoColumn = () => {
 					<FullscreenOutlined onClick={showModal} />
 				</div>
 			</div>
-			<Column className="barGraph" {...config} />
+			<Column loading={isLoading} className="barGraph" {...config} />
 		</div>
 	);
 };

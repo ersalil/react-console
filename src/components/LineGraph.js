@@ -31,6 +31,7 @@ const DemoLine = (props) => {
 		if (isToggled) {
 			console.log("On Board Data");
 		} else console.log("Check In Data");
+		setIsLoading(true);
 		UseApiLine(setData, setIsLoading, shipName);
         props.onChange(shipName)
 	}, [shipName, isToggled]);
@@ -57,16 +58,16 @@ const DemoLine = (props) => {
 		xField: xaxis,
 		yField: yaxis,
 
-		// xAxis: [{
-		// 	title: t("Time"),
-		// 	type: "time",
-		// 	ticks: {
+		xAxis: [{
+			title: t("Time"),
+			type: "time",
+			ticks: {
 
-		// 		min: "00:00",
-		// 		max: "23:00",
-		// 		interval: "1h"
-		// 	}
-		// }],
+				min: "00:00",
+				max: "23:00",
+				interval: "1h"
+			}
+		}],
 
 		yAxis: [{
 			ticks: {
@@ -95,9 +96,9 @@ const DemoLine = (props) => {
   };
   
   // if data is empty, show a loading screen
-	if (isLoading) {
-		return <div className="loader"></div>;
-	}
+	// if (isLoading) {
+	// 	return <div className="loader"> Loading... </div>;
+	// }
 	return (
 		<div>
 			<div
@@ -138,7 +139,7 @@ const DemoLine = (props) => {
 					<FullscreenOutlined onClick={showModal} />
 				</div>
 			</div>
-			<Line className="lineGraph" data={{labels: ["00:00","06.00","12:00","18:00"]}} {...config} />
+			<Line loading={isLoading} className="lineGraph" data={{labels: ["00:00","06.00","12:00","18:00"]}} {...config} />
 		</div>
 	);
 };

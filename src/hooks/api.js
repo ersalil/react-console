@@ -66,7 +66,7 @@ async function fetchWithTimeout(resource, options = {}) {
 export async function UseApiTemp(props, load) {
   try {
     const response = await fetchWithTimeout(url+"/table/data", {
-      timeout: 10000,
+      timeout: 50000,
     });
     const data = await response.json();
     props(data);

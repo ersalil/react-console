@@ -27,13 +27,13 @@ function TableView(props) {
     console.log(colData);
 
   // Loader is applied while the data is fetched
-    if (isLoading) {
-      return <div className='loader'></div>
-    }
+    // if (isLoading) {
+    //   return <div className='loader'></div>
+    // }
     
   // Returning all the data to Table View
     return(
-          <Table rowClassName='table-view-bg' className='tableview' pagination={false} dataSource={filter} columns={colData} />
+          <Table loading={isLoading} rowClassName='table-view-bg' className='tableview' pagination={false} dataSource={filter} columns={colData} />
     );
 }
 
