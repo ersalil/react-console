@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 // for language support
 const ToggleButton = (props) => {
     const { t } = useTranslation();
-
+    
     const [isToggled, setIsToggled] = useState(false);
     const onToggle = () => {
         setIsToggled(!isToggled);

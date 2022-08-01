@@ -11,7 +11,7 @@
 //       console.log("fetch data failed", error);
 //     });
 // };
-const url = 'https://28e8-182-73-51-26.in.ngrok.io'
+const url = 'http://127.0.0.1:8000';
 
 export const UseColApi = (props) => {
   fetch(url+"/ship/col")
@@ -25,17 +25,18 @@ export const UseColApi = (props) => {
 };
 
 export const UseApiBar = (props, load) => {
-  fetch(url+"/bar/data")
+  fetch("http://localhost:8000/barg/4")
     .then((response) => response.json())
     .then((json) => {
       props(json);
       load(false);
-      // console.log(json);
+      console.log(json);
     })
     .catch((error) => {
       console.log("fetch data failed", error);
     });
 };
+
 
 export const UseApiLine = (setD, load, shipName) => {
   fetch(url+"/sa")
