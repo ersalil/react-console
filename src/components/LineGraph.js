@@ -32,9 +32,9 @@ const DemoLine = (props) => {
 			console.log("On Board Data");
 		} else console.log("Check In Data");
 		setIsLoading(true);
-		UseApiLine(setData, setIsLoading, shipName);
+		UseApiLine(setData, setIsLoading,shipName);
         props.onChange(shipName)
-	}, [shipName, isToggled]);
+	}, [shipName,isToggled]);
 
 	//modal functions
 	const showModal = () => {

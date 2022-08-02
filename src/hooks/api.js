@@ -11,6 +11,7 @@
 //       console.log("fetch data failed", error);
 //     });
 // };
+var fullData = undefined;
 const url = 'http://127.0.0.1:8000';
 
 export const UseColApi = (props) => {
@@ -38,17 +39,21 @@ export const UseApiBar = (props, load) => {
 };
 
 
-export const UseApiLine = (setD, load, shipName) => {
+export const UseApiLine = (setD, load,ship) => {
+  if(fullData===undefined){
   fetch(url+"/sa")
     .then((response) => response.json())
     .then((json) => {
-      console.log(json[shipName]);
-      setD(json[shipName]);
+      fullData = json;
+      setD(json[ship]);
       load(false);
     })
     .catch((error) => {
       console.log("fetch data failed", error);
-    });
+    });}else{
+      setD(fullData[ship]);
+      load(false);
+    }
 };
 
 async function fetchWithTimeout(resource, options = {}) {
