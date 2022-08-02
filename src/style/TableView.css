@@ -1,19 +1,19 @@
 .table-view-bg {
-    background:transparent;
+  background: transparent;
 }
 
 .tableview {
-    border: 1px solid;  
-    column-width: auto;
-    margin-top: 20px;
-    margin-left: 16px; 
-    margin-right: 12px;
-    padding-top: 5px;
-    padding-right: 5px;
-    padding-bottom: 5px;
-    padding-left: 10px;
+  border: 1px solid;
+  column-width: auto;
+  margin-top: 20px;
+  margin-left: 16px;
+  margin-right: 12px;
+  padding-top: 5px;
+  padding-right: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
 }
 
-.ant-table{
-    background-color: transparent;
+.ant-table {
+  background-color: transparent;
 }

@@ -1,11 +1,12 @@
-.button-col{
-    margin-top: 10px;
-    height: 40px;
+.button-col {
+  margin-top: 10px;
+  height: 40px;
 }
 
-.lineGraph{
-    border: 1px solid;
-    align-items: 'center';
-    padding: 4px 4px 4px 8px;
-    margin-right: 16px
-}   
+.lineGraph {
+  border: 1px solid;
+  align-items: "center";
+  padding: 4px 4px 4px 8px;
+  margin-right: 16px;
+}
+

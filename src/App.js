@@ -32,7 +32,7 @@ function App() {
         <Row className="graph">
           <Col className="space"></Col>
           <Col className="content">
-            <DemoLine onChange={setShipName}/>
+            <DemoLine onChange={setShipName} />
           </Col>
           <Col className="space"></Col>
           <Col className="content">
@@ -44,7 +44,7 @@ function App() {
           <Col className="space"></Col>
           <Col className="content1">
             {t("table")}
-            <TableView shipName={ship}/>
+            <TableView shipName={ship} />
           </Col>
           <Col className="space"></Col>
         </Row>
