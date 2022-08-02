@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import '../style/TableView.css';
 import '../style/loader.css';
-import {Col, Table} from 'antd';
-import {UseApi, UseApiTemp, UseColApi} from '../hooks/api';
-import { ApiFilled } from '@ant-design/icons';
-import SelectShip from './SelectShip';
+import { Table } from 'antd';
+import { UseApiTemp, UseColApi} from '../hooks/api';
 
 function TableView(props) {
   // Data fetched for Table from Api.js

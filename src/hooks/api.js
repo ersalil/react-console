@@ -1,16 +1,3 @@
-// export const UseApi = (props, load) => {
-//   fetch("http://localhost:8000/yash", {
-//     signal: AbortSignal.timeout(5000),
-//   })
-//     .then((response) => response.json())
-//     .then((json) => {
-//       props(json);
-//       load(false);
-//     })
-//     .catch((error) => {
-//       console.log("fetch data failed", error);
-//     });
-// };
 var fullData = undefined;
 const url = 'http://127.0.0.1:8000';
 
@@ -26,7 +13,7 @@ export const UseColApi = (props) => {
 };
 
 export const UseApiBar = (props, load) => {
-  fetch("http://localhost:8000/barg/4")
+  fetch("http://localhost:8000/barg/10")
     .then((response) => response.json())
     .then((json) => {
       props(json);
