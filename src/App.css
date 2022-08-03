@@ -58,3 +58,14 @@
    width: 100px;
    height: 30px;
 }
+
+.footer{
+    position: fixed;
+    bottom: 0;
+    background-color: rgb(111, 166, 187);;
+    width: 100%;
+    text-align: center;
+    /* margin-top: px; */
+    color: white;
+    font-family: monospace !important;
+}

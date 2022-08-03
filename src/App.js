@@ -2,7 +2,7 @@ import DemoColumn from "./components/BarGraph";
 import DemoLine from "./components/LineGraph";
 import TableView from "./components/TableView";
 import React, { useState } from "react";
-import { Layout, Col, Row } from "antd";
+import { Layout, Col, Row, Footer } from "antd";
 import "./App.css";
 import "./style/Common.css";
 // import LanguageButton from "./components/LanguageButton";
@@ -47,6 +47,9 @@ function App() {
             <TableView shipName={ship}/>
           </Col>
           <Col className="space"></Col>
+        </Row>
+        <Row>
+          <footer className="footer">Copyright © 2022 DeCurtis Corporation</footer>
         </Row>
       </div>
     </Layout>
