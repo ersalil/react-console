@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
-import "../style/TableView.css";
-import "../style/loader.css";
-import { Table } from "antd";
-import { UseApiTemp, UseColApi } from "../hooks/api";
+import React, { useState, useEffect } from 'react';
+import '../style/TableView.css';
+import '../style/loader.css';
+import { Table } from 'antd';
+import { UseApiTemp, UseColApi} from '../hooks/api';
 
 function TableView(props) {
   const [data, setData] = useState([]);

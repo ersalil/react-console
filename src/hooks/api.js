@@ -15,7 +15,7 @@ export const UseColApi = (props) => {
 
 //to fetch data for bar graph
 export const UseApiBar = (props, load) => {
-  fetch("http://localhost:8000/barg/4")
+  fetch("http://localhost:8000/barg/10")
     .then((response) => response.json())
     .then((json) => {
       props(json);
