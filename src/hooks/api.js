@@ -1,21 +1,9 @@
-// export const UseApi = (props, load) => {
-//   fetch("http://localhost:8000/yash", {
-//     signal: AbortSignal.timeout(5000),
-//   })
-//     .then((response) => response.json())
-//     .then((json) => {
-//       props(json);
-//       load(false);
-//     })
-//     .catch((error) => {
-//       console.log("fetch data failed", error);
-//     });
-// };
 var fullData = undefined;
-const url = 'http://127.0.0.1:8000';
+const url = "http://127.0.0.1:8000"; //url where data is hosted by api
 
+//to fetch data of coloumns of table
 export const UseColApi = (props) => {
-  fetch(url+"/ship/col")
+  fetch(url + "/ship/col")
     .then((response) => response.json())
     .then((json) => {
       props(json);
@@ -25,8 +13,9 @@ export const UseColApi = (props) => {
     });
 };
 
+//to fetch data for bar graph
 export const UseApiBar = (props, load) => {
-  fetch("http://localhost:8000/barg/4")
+  fetch("http://localhost:8000/barg/10")
     .then((response) => response.json())
     .then((json) => {
       props(json);
@@ -38,24 +27,26 @@ export const UseApiBar = (props, load) => {
     });
 };
 
-
-export const UseApiLine = (setD, load,ship) => {
-  if(fullData===undefined){
-  fetch(url+"/sa")
-    .then((response) => response.json())
-    .then((json) => {
-      fullData = json;
-      setD(json[ship]);
-      load(false);
-    })
-    .catch((error) => {
-      console.log("fetch data failed", error);
-    });}else{
-      setD(fullData[ship]);
-      load(false);
-    }
+//to fetch data for line graph
+export const UseApiLine = (setD, load, ship) => {
+  if (fullData === undefined) {
+    fetch(url + "/sa")
+      .then((response) => response.json())
+      .then((json) => {
+        fullData = json;
+        setD(json[ship]);
+        load(false);
+      })
+      .catch((error) => {
+        console.log("fetch data failed", error);
+      });
+  } else {
+    setD(fullData[ship]);
+    load(false);
+  }
 };
 
+//to fetch data for table
 async function fetchWithTimeout(resource, options = {}) {
   const { timeout = 5 } = options;
   const abortController = new AbortController();
@@ -68,11 +59,11 @@ async function fetchWithTimeout(resource, options = {}) {
   return response;
 }
 
-//Table Data with exceptional handling
+//table data with exceptional handling
 export async function UseApiTemp(props, load) {
   try {
-    const response = await fetchWithTimeout(url+"/table/data", {
-      timeout: 50000,
+    const response = await fetchWithTimeout(url + "/table/data", {
+      timeout: 10000,
     });
     const data = await response.json();
     props(data);
