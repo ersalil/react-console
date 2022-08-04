@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 /* eslint-disable new-cap */
 /* eslint-disable react/prop-types */
 /* eslint-disable require-jsdoc */

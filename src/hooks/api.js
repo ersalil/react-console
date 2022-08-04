@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 /* eslint-disable require-jsdoc */
 let fullData = undefined;
 const url = 'http://127.0.0.1:8000'; // url where data is hosted by api
@@ -16,7 +17,7 @@ export const UseApiCol = (props) => {
 
 // to fetch data for bar graph
 export const UseApiBar = (props, load) => {
-  fetch('http://localhost:8000/barg/10')
+  fetch('http://localhost:8000/bargraph/10')
       .then((response) => response.json())
       .then((json) => {
         props(json);
@@ -31,7 +32,7 @@ export const UseApiBar = (props, load) => {
 // to fetch data for line graph
 export const UseApiLine = (setD, load, ship) => {
   if (fullData === undefined) {
-    fetch(url + '/sa')
+    fetch(url + '/linegraph')
         .then((response) => response.json())
         .then((json) => {
           fullData = json;
