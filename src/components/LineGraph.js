@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 /* eslint-disable new-cap */
 /* eslint-disable react/prop-types */
 import React, {useState, useEffect} from 'react';
@@ -10,6 +11,7 @@ import {useTranslation} from 'react-i18next';
 import SelectShip from './SelectShip';
 import {Modal} from 'antd';
 import {FullscreenOutlined} from '@ant-design/icons';
+
 
 const DemoLine = (props) => {
   const [itemData] = useState({});

@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 /* eslint-disable react/prop-types */
 import {Switch} from 'antd';
 import React, {useState} from 'react';
