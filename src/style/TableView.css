@@ -13,8 +13,13 @@
     padding-bottom: 5px;
     padding-left: 10px;
     margin-bottom: 30px;
+    font-weight: lighter;
 }
 
 .ant-table {
   background-color: transparent;
+}
+
+.ant-table-thead > tr > th {
+  font-weight: bold;
 }
