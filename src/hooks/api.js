@@ -1,11 +1,11 @@
 /* eslint-disable linebreak-style */
 /* eslint-disable require-jsdoc */
 let fullData = undefined;
-const url = 'http://127.0.0.1:28000'; // url where data is hosted by api
+// const url = process.env.REACT_APP_MAIN_URL; // url where data is hosted by api
 
 // to fetch data of coloumns of table
 export const UseApiCol = (props) => {
-  fetch(url + '/ship/col')
+  fetch(`${process.env.REACT_APP_MAIN_URL}/ship/col`)
       .then((response) => response.json())
       .then((json) => {
         props(json);
@@ -17,7 +17,7 @@ export const UseApiCol = (props) => {
 
 // to fetch data for bar graph
 export const UseApiBar = (props, load) => {
-  fetch(url+'/bargraph/10')
+  fetch(`${process.env.REACT_APP_MAIN_URL}/bargraph/10`)
       .then((response) => response.json())
       .then((json) => {
         props(json);
@@ -25,14 +25,14 @@ export const UseApiBar = (props, load) => {
         console.log(json);
       })
       .catch((error) => {
-        console.log('fetch data failed', error);
+        console.log('fetch data failed', String(error));
       });
 };
 
 // to fetch data for line graph
 export const UseApiLine = (setD, load, ship) => {
   if (fullData === undefined) {
-    fetch(url + '/linegraph')
+    fetch(`${process.env.REACT_APP_MAIN_URL}/linegraph`)
         .then((response) => response.json())
         .then((json) => {
           fullData = json;
@@ -64,9 +64,7 @@ async function fetchWithTimeout(resource, options = {}) {
 // table data with exceptional handling
 export async function UseApiTab(props, load) {
   try {
-    const response = await fetchWithTimeout(url + '/table/data', {
-      timeout: 10000,
-    });
+    const response = await fetchWithTimeout(`${process.env.REACT_APP_MAIN_URL}/table/data`, {timeout: 10000});
     const data = await response.json();
     props(data);
     load(false);

@@ -1,12 +1,14 @@
 version: '3.9'
 services:
   app:
-    build: 
+    build:
       context: .
-    volumes:
-      - .:/react_console
+      args:
+      - REACT_APP_MAIN_URL= ${REACT_APP_MAIN_URL}
+    # command: npm start
     ports:
-      - 23000:3000
+      - "80:80"
     image: react
     container_name: react_container
-    
+
+# REACT_MAIN_URL=hello

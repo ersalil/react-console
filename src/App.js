@@ -55,7 +55,7 @@ function App() {
 				</Row>
 				<Row>
 					<footer className="footer">
-						Copyright © 2022 DeCurtis Corporation
+						{"Copyright © 2022 DeCurtis Corporation"}
 					</footer>
 				</Row>
 			</div>

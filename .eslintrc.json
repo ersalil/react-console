@@ -18,6 +18,8 @@
         "react"
     ],
     "rules": {
-        "linebreak-style": 0
+        "linebreak-style": 0,
+        "max-len": "off",
+        "no-trailing-spaces": "off"
     }
 }
