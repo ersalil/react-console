@@ -1,44 +1,36 @@
 /* eslint-disable linebreak-style */
-/* eslint-disable new-cap */
 /* eslint-disable react/prop-types */
 import React, {useState, useEffect} from 'react';
 import {Line} from '@ant-design/plots';
 import ToggleButton from './ToggleButton';
 import '../style/LineGraph.css';
 import '../style/loader.css';
-import {UseApiLine} from '../hooks/api';
+import {useApiLine} from '../hooks/api';
 import {useTranslation} from 'react-i18next';
 import SelectShip from './SelectShip';
 import {Modal} from 'antd';
 import {FullscreenOutlined} from '@ant-design/icons';
 
-
-const DemoLine = (props) => {
+const LineGraph = (props) => {
   const [itemData] = useState({});
-
-  // for togging between on board and check in data
   const [isToggled, setIsToggled] = useState(true);
-
-  // for translating the text
+  // for translating the text(no longer used)
   const {t} = useTranslation();
-
   // default value of the select ship
   const [shipName, setLineData] = useState('DM');
-
-  // to set visibility of modal
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [data, setData] = useState([]);
+  const {sendRequest, fetchedData, isLoading} = useApiLine();
 
-  // fetching data from api
-  const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
-    if (isToggled) {
-      console.log('On Board Data');
-    } else console.log('Check In Data');
-    setIsLoading(true);
-    UseApiLine(setData, setIsLoading, shipName);
-    props.onChange(shipName);
-  }, [shipName, isToggled]);
+    sendRequest('http://127.0.0.1:8000');
+  }, []);
+  useEffect(() => {
+    if (fetchedData !== undefined) {
+      setData(fetchedData[shipName]);
+      props.onChange(shipName);
+    }
+  }, [fetchedData, shipName]);
 
   // open modal
   const showModal = () => {
@@ -110,7 +102,7 @@ const DemoLine = (props) => {
         {t('line')}
         <div className='flex-row' style={{gap: '10px'}}>
           <Modal
-            title='Last 10 Embarkation Analysis'
+            title={t('line')}
             visible={isModalVisible}
             onCancel={handleCancel}
             footer={null}
@@ -120,11 +112,11 @@ const DemoLine = (props) => {
               style={{
                 justifyContent: 'flex-end',
                 marginBottom: '10px',
+                gap: '10px',
               }}
             >
               <p>
                 <ToggleButton onToggled={setIsToggled} />
-                &nbsp;
                 <SelectShip onChange={setLineData} itemData={itemData} />
               </p>
             </div>
@@ -132,8 +124,7 @@ const DemoLine = (props) => {
           </Modal>
           <ToggleButton onToggled={setIsToggled} />
           <SelectShip onChange={setLineData} itemData={itemData} />
-          &nbsp;
-          <FullscreenOutlined onClick={showModal} />
+          <FullscreenOutlined onClick={showModal} style={{border: '1px solid', borderRadius: '5px'}}/>
         </div>
       </div>
       <Line
@@ -145,4 +136,4 @@ const DemoLine = (props) => {
     </div>
   );
 };
-export default DemoLine;
+export default LineGraph;

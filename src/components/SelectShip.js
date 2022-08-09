@@ -15,7 +15,6 @@ for (const [key, value] of Object.entries(itemData)) {
     return <Option key={Option} value={ship}>{ship}</Option>;
   });
   children.push(<OptGroup label={key}>{data}</OptGroup>);
-  console.log(key, value);
 }
 
 const SelectShip = (props) => {

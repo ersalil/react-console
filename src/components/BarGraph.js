@@ -3,34 +3,34 @@ import React, {useState, useEffect} from 'react';
 import {Column} from '@ant-design/plots';
 import '../style/BarGraph.css';
 import ToggleButton from './ToggleButton';
-import {UseApiBar} from '../hooks/api';
+import {useApiBar} from '../hooks/api';
 import {useTranslation} from 'react-i18next';
 import {Modal} from 'antd';
 import {FullscreenOutlined} from '@ant-design/icons';
 
-// column is generated according to data fetched
-const DemoColumn = () => {
+const BarGraph = () => {
   const [isToggled, setIsToggled] = useState(true);
   const {t} = useTranslation(); // for translation(no longer used)
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [data, setData] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const {sendRequest, fetchedData, isLoading} = useApiBar();
 
-  // switch between checkedin and onboard data
+  // fetch data from api
   useEffect(() => {
-    if (isToggled) {
-      console.log('On Board Data');
-    } else console.log('Check In Data');
-    UseApiBar(setData, setIsLoading);
-    console.log(data);
-  }, [isToggled]);
+    sendRequest('http://127.0.0.1:8000');
+  }, []);
+  useEffect(() => {
+    if (fetchedData !== undefined) {
+      setData(fetchedData);
+    }
+  }, [fetchedData]);
 
   // open modal
   const showModal = () => {
     setIsModalVisible(true);
   };
   // close modal
-  const handleCancel = () => {
+  const closeModal = () => {
     setIsModalVisible(false);
   };
 
@@ -61,12 +61,12 @@ const DemoColumn = () => {
       >
         {/* heading of the graph */}
         {t('bar')}
-        <div className='flex-row' style={{justifyContent: 'flex-end'}}>
+        <div className='flex-row' style={{gap: '10px'}}>
           {/* modal button */}
           <Modal
-            title='Busiest Hour of Embarkation'
+            title={t('bar')}
             visible={isModalVisible}
-            onCancel={handleCancel}
+            onCancel={closeModal}
             footer={null}
           >
             <div
@@ -82,11 +82,9 @@ const DemoColumn = () => {
             </div>
             <Column className='barGraph' {...config} />
           </Modal>
-          &nbsp;
           {/* toggle button */}
           <ToggleButton onToggled={setIsToggled} />
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <FullscreenOutlined onClick={showModal} />
+          <FullscreenOutlined onClick={showModal} style={{border: '1px solid', borderRadius: '5px'}}/>
         </div>
       </div>
       <Column loading={isLoading} className='barGraph' {...config} />
@@ -94,4 +92,4 @@ const DemoColumn = () => {
   );
 };
 
-export default DemoColumn;
+export default BarGraph;

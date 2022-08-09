@@ -5,33 +5,31 @@ import React, {useState, useEffect} from 'react';
 import '../style/TableView.css';
 import '../style/loader.css';
 import {Table} from 'antd';
-import {UseApiTab, UseApiCol} from '../hooks/api';
+import {useApiTab} from '../hooks/api';
 
 function TableView(props) {
   const [data, setData] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [colData, setColData] = useState([]);
+  const {sendRequest, fetchedData, fetchedColumn, isLoading} = useApiTab();
 
-  // fetching data from api
+  // fetch data from api
   useEffect(() => {
-    UseApiTab(setData, setIsLoading);
+    sendRequest('http://127.0.0.1:8000');
   }, []);
+  useEffect(() => {
+    if (fetchedData !== undefined && fetchedColumn !== undefined) {
+      setData(fetchedData);
+      setColData(fetchedColumn);
+    }
+  }, [fetchedData]);
 
   // filter data according to ship name
   const filter = [];
-  console.log(data, props.shipName);
   for (const item of data) {
     if (item['code'] === props.shipName) {
       filter.push(item);
     }
   }
-  console.log(filter);
-
-  // columns fetched from Api.js
-  const [colData, setColData] = useState([]);
-  useEffect(() => {
-    UseApiCol(setColData);
-  }, []);
-  console.log(colData);
 
   // returning table
   return (

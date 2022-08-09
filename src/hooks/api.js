@@ -1,87 +1,120 @@
 /* eslint-disable linebreak-style */
+
+import {useState} from 'react';
+
 /* eslint-disable require-jsdoc */
-let fullData = undefined;
-const url = 'http://127.0.0.1:28000'; // url where data is hosted by api
 
-// to fetch data of coloumns of table
-export const UseApiCol = (props) => {
-  fetch(url + '/ship/col')
-      .then((response) => response.json())
-      .then((json) => {
-        props(json);
-      })
-      .catch((error) => {
-        console.log('fetch data failed', error);
-      });
-};
-
-// to fetch data for bar graph
-export const UseApiBar = (props, load) => {
-  fetch(url+'/bargraph/10')
-      .then((response) => response.json())
-      .then((json) => {
-        props(json);
-        load(false);
-        console.log(json);
-      })
-      .catch((error) => {
-        console.log('fetch data failed', error);
-      });
-};
-
-// to fetch data for line graph
-export const UseApiLine = (setD, load, ship) => {
-  if (fullData === undefined) {
-    fetch(url + '/linegraph')
-        .then((response) => response.json())
-        .then((json) => {
-          fullData = json;
-          setD(json[ship]);
-          load(false);
+export const useApiBar = () => {
+  const [fetchedData, setFetchedData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState();
+  const sendRequest = (url, method = 'GET', body = null, headers = {}) => {
+    setIsLoading(true);
+    fetch(url+'/bargraph/10', {
+      method,
+      body,
+      headers,
+    })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error(response.message);
+          }
+          return response.json();
         })
-        .catch((error) => {
-          console.log('fetch data failed', error);
+        .then((json) => {
+          setIsLoading(false);
+          setFetchedData(json);
+        })
+        .catch((err) => {
+          setError(err.message);
+          setIsLoading(false);
+          throw err;
         });
-  } else {
-    setD(fullData[ship]);
-    load(false);
-  }
+  };
+  return {fetchedData, isLoading, error, sendRequest};
 };
 
-// to fetch data for table
-async function fetchWithTimeout(resource, options = {}) {
-  const {timeout = 5} = options;
-  const abortController = new AbortController();
-  const id = setTimeout(() => abortController.abort(), timeout);
-  const response = await fetch(resource, {
-    ...options,
-    signal: abortController.signal,
-  });
-  clearTimeout(id);
-  return response;
-}
 
-// table data with exceptional handling
-export async function UseApiTab(props, load) {
-  try {
-    const response = await fetchWithTimeout(url + '/table/data', {
-      timeout: 10000,
-    });
-    const data = await response.json();
-    props(data);
-    load(false);
-    console.log(data);
-  } catch (error) {
-    if (error.name == 'TimeoutError') {
-      console.log('Time out Error');
-    } else if (error.name == 'AbortError') {
-      console.log('Abort Error');
-    } else if (error.name == 'TypeError') {
-      console.log('Type Error');
-    } else {
-      console.log('fetch data failed', error);
-    }
-  }
-}
+export const useApiLine = () => {
+  const [fetchedData, setFetchedData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState();
+  const sendRequest = (url, method = 'GET', body = null, headers = {}) => {
+    setIsLoading(true);
+    fetch(url+'/linegraph', {
+      method,
+      body,
+      headers,
+    })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error(response.message);
+          }
+          return response.json();
+        })
+        .then((json) => {
+          setIsLoading(false);
+          setFetchedData(json);
+        })
+        .catch((err) => {
+          setError(err.message);
+          setIsLoading(false);
+          throw err;
+        });
+  };
+  return {fetchedData, isLoading, error, sendRequest};
+};
 
-export default UseApiTab;
+export const useApiTab = () => {
+  const [fetchedData, setFetchedData] = useState([]);
+  const [fetchedColumn, setFetchedColumn] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState();
+  const sendRequest = (url, method = 'GET', body = null, headers = {}) => {
+    setIsLoading(true);
+    fetch(url+'/table/data', {
+      method,
+      body,
+      headers,
+    })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error(response.message);
+          }
+          return response.json();
+        })
+        .then((json) => {
+          setIsLoading(false);
+          setFetchedData(json);
+        })
+        .catch((err) => {
+          setError(err.message);
+          setIsLoading(false);
+          throw err;
+        });
+
+    fetch(url+'/ship/col', {
+      method,
+      body,
+      headers,
+    })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error(response.message);
+          }
+          return response.json();
+        })
+        .then((json) => {
+          setIsLoading(false);
+          setFetchedColumn(json);
+        })
+        .catch((err) => {
+          setError(err.message);
+          setIsLoading(false);
+          throw err;
+        });
+  };
+  return {fetchedData, fetchedColumn, isLoading, error, sendRequest};
+};
+
+export default useApiTab;

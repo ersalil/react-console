@@ -3,8 +3,8 @@
 /* eslint-disable no-tabs */
 /* eslint-disable quotes */
 /* eslint-disable require-jsdoc */
-import DemoColumn from "./components/BarGraph";
-import DemoLine from "./components/LineGraph";
+import BarGraph from "./components/BarGraph";
+import LineGraph from "./components/LineGraph";
 import TableView from "./components/TableView";
 import React, {useState} from "react";
 import {Layout, Col, Row} from "antd";
@@ -15,7 +15,7 @@ import "./style/Common.css";
 // import { useState } from 'react';
 import {useTranslation} from "react-i18next";
 
-document.body.style.backgroundColor = "#f3f3f3";
+// document.body.style.backgroundColor = "#f3f3f3";
 function App() {
 	const {t} = useTranslation();
 	// const [language, setLanguage] = useState(i18n.language);
@@ -26,22 +26,20 @@ function App() {
 	//   i18n.changeLanguage(e.target.value);
 	// }
 
-	document.body.style.backgroundColor = "#f3f3f3";
+	// document.body.style.backgroundColor = "#f3f3f3";
 
 	return (
 		<Layout>
-			<div className="background">
+			<div>
 				<div className="header">
 					<h1 className="head">{t("title")}</h1>
 				</div>
 				<Row className="graph">
-					<Col className="space"></Col>
 					<Col className="content">
-						<DemoLine onChange={setShipName} />
+						<LineGraph onChange={setShipName} />
 					</Col>
-					<Col className="space"></Col>
 					<Col className="content">
-						<DemoColumn />
+						<BarGraph />
 					</Col>
 					<Col className="space"></Col>
 				</Row>
@@ -53,12 +51,10 @@ function App() {
 					</Col>
 					<Col className="space"></Col>
 				</Row>
-				<Row>
-					<footer className="footer">
-						Copyright © 2022 DeCurtis Corporation
-					</footer>
-				</Row>
 			</div>
+			<footer className="footer">
+						Copyright © 2022 DeCurtis Corporation
+			</footer>
 		</Layout>
 	);
 }
