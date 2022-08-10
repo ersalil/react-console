@@ -10,7 +10,7 @@ export const useApiBar = () => {
   const [error, setError] = useState();
   const sendRequest = (url, method = 'GET', body = null, headers = {}) => {
     setIsLoading(true);
-    fetch(url+'/bargraph/10', {
+    fetch(url, {
       method,
       body,
       headers,
@@ -41,7 +41,7 @@ export const useApiLine = () => {
   const [error, setError] = useState();
   const sendRequest = (url, method = 'GET', body = null, headers = {}) => {
     setIsLoading(true);
-    fetch(url+'/linegraph', {
+    fetch(url, {
       method,
       body,
       headers,
@@ -67,12 +67,11 @@ export const useApiLine = () => {
 
 export const useApiTab = () => {
   const [fetchedData, setFetchedData] = useState([]);
-  const [fetchedColumn, setFetchedColumn] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState();
   const sendRequest = (url, method = 'GET', body = null, headers = {}) => {
     setIsLoading(true);
-    fetch(url+'/table/data', {
+    fetch(url, {
       method,
       body,
       headers,
@@ -92,8 +91,16 @@ export const useApiTab = () => {
           setIsLoading(false);
           throw err;
         });
+  };
+  return {fetchedData, isLoading, error, sendRequest};
+};
 
-    fetch(url+'/ship/col', {
+export const useApiCol = () => {
+  const [fetchedColumn, setFetchedColumn] = useState([]);
+  const [error, setError] = useState();
+  const fetchColumn = (url, method = 'GET', body = null, headers = {}) => {
+    setIsLoading(true);
+    fetch(url, {
       method,
       body,
       headers,
@@ -114,7 +121,9 @@ export const useApiTab = () => {
           throw err;
         });
   };
-  return {fetchedData, fetchedColumn, isLoading, error, sendRequest};
+  return {fetchedColumn, error, fetchColumn};
 };
 
 export default useApiTab;
+
+

@@ -5,7 +5,7 @@ import '../style/BarGraph.css';
 import ToggleButton from './ToggleButton';
 import {useApiBar} from '../hooks/api';
 import {useTranslation} from 'react-i18next';
-import {Modal} from 'antd';
+import {Modal, Tooltip} from 'antd';
 import {FullscreenOutlined} from '@ant-design/icons';
 
 const BarGraph = () => {
@@ -17,7 +17,7 @@ const BarGraph = () => {
 
   // fetch data from api
   useEffect(() => {
-    sendRequest('http://127.0.0.1:8000');
+    sendRequest(`${process.env.REACT_APP_FETCH_BAR}`);
   }, []);
   useEffect(() => {
     if (fetchedData !== undefined) {
@@ -84,7 +84,9 @@ const BarGraph = () => {
           </Modal>
           {/* toggle button */}
           <ToggleButton onToggled={setIsToggled} />
-          <FullscreenOutlined onClick={showModal} style={{border: '1px solid', borderRadius: '5px'}}/>
+          <Tooltip title="Full Screen">
+            <span><FullscreenOutlined onClick={showModal} style={{border: '1px solid', borderRadius: '5px'}}/></span>
+          </Tooltip>
         </div>
       </div>
       <Column loading={isLoading} className='barGraph' {...config} />

@@ -8,7 +8,7 @@ import '../style/loader.css';
 import {useApiLine} from '../hooks/api';
 import {useTranslation} from 'react-i18next';
 import SelectShip from './SelectShip';
-import {Modal} from 'antd';
+import {Modal, Tooltip} from 'antd';
 import {FullscreenOutlined} from '@ant-design/icons';
 
 const LineGraph = (props) => {
@@ -23,7 +23,7 @@ const LineGraph = (props) => {
   const {sendRequest, fetchedData, isLoading} = useApiLine();
 
   useEffect(() => {
-    sendRequest('http://127.0.0.1:8000');
+    sendRequest(`${process.env.REACT_APP_FETCH_LINE}`);
   }, []);
   useEffect(() => {
     if (fetchedData !== undefined) {
@@ -115,16 +115,18 @@ const LineGraph = (props) => {
                 gap: '10px',
               }}
             >
-              <p>
+              <div className='flex-row' style={{gap: '10px'}}>
                 <ToggleButton onToggled={setIsToggled} />
                 <SelectShip onChange={setLineData} itemData={itemData} />
-              </p>
+              </div>
             </div>
             <Line className='lineGraph' {...config} />
           </Modal>
           <ToggleButton onToggled={setIsToggled} />
           <SelectShip onChange={setLineData} itemData={itemData} />
-          <FullscreenOutlined onClick={showModal} style={{border: '1px solid', borderRadius: '5px'}}/>
+          <Tooltip title="Full Screen">
+            <span><FullscreenOutlined onClick={showModal} style={{border: '1px solid', borderRadius: '5px'}}/></span>
+          </Tooltip>
         </div>
       </div>
       <Line

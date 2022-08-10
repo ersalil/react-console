@@ -32,6 +32,7 @@ function App() {
 		<Layout>
 			<div>
 				<div className="header">
+					{/* <img src="src/asset/logo.png" alt="Italian Trulli" /> */}
 					<h1 className="head">{t("title")}</h1>
 				</div>
 				<Row className="graph">
