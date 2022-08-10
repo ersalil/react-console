@@ -99,7 +99,6 @@ export const useApiCol = () => {
   const [fetchedColumn, setFetchedColumn] = useState([]);
   const [error, setError] = useState();
   const fetchColumn = (url, method = 'GET', body = null, headers = {}) => {
-    setIsLoading(true);
     fetch(url, {
       method,
       body,
@@ -112,12 +111,10 @@ export const useApiCol = () => {
           return response.json();
         })
         .then((json) => {
-          setIsLoading(false);
           setFetchedColumn(json);
         })
         .catch((err) => {
           setError(err.message);
-          setIsLoading(false);
           throw err;
         });
   };

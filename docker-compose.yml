@@ -3,10 +3,8 @@ services:
   app:
     build: 
       context: .
-    volumes:
-      - .:/react_console
     ports:
       - 23000:3000
-    image: react
-    container_name: react_container
+    image: sre-embarkation-manifest-frontend:1.0.0
+    container_name: sre-embarkation-manifest-frontend
     

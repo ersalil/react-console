@@ -1,0 +1,1 @@
+sre-embarkation-manifest-frontend:1.0.0
