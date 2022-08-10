@@ -1,50 +1,126 @@
-export const UseApi = (props, load) => {
-    fetch('http://localhost:8000/ship/data')
-    .then((response) => response.json())
-    .then((json) => {
-        props(json);
-        load(false);
+/* eslint-disable linebreak-style */
+
+import {useState} from 'react';
+
+/* eslint-disable require-jsdoc */
+
+export const useApiBar = () => {
+  const [fetchedData, setFetchedData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState();
+  const sendRequest = (url, method = 'GET', body = null, headers = {}) => {
+    setIsLoading(true);
+    fetch(url, {
+      method,
+      body,
+      headers,
     })
-    .catch((error) => {
-        console.log('fetch data failed', error);
-    });
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error(response.message);
+          }
+          return response.json();
+        })
+        .then((json) => {
+          setIsLoading(false);
+          setFetchedData(json);
+        })
+        .catch((err) => {
+          setError(err.message);
+          setIsLoading(false);
+          throw err;
+        });
+  };
+  return {fetchedData, isLoading, error, sendRequest};
 };
 
-export const UseColApi = (props) => {
-    fetch('http://localhost:8000/ship/col')
-    .then((response) => response.json())
-    .then((json) => {
-        props(json);
+
+export const useApiLine = () => {
+  const [fetchedData, setFetchedData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState();
+  const sendRequest = (url, method = 'GET', body = null, headers = {}) => {
+    setIsLoading(true);
+    fetch(url, {
+      method,
+      body,
+      headers,
     })
-    .catch((error) => {
-        console.log('fetch data failed', error);
-    });
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error(response.message);
+          }
+          return response.json();
+        })
+        .then((json) => {
+          setIsLoading(false);
+          setFetchedData(json);
+        })
+        .catch((err) => {
+          setError(err.message);
+          setIsLoading(false);
+          throw err;
+        });
+  };
+  return {fetchedData, isLoading, error, sendRequest};
 };
 
-export const UseApiBar = (props, load) => {
-    fetch('http://localhost:8000/bar/data')
-      .then((response) => response.json())
-      .then((json) => {
-      props(json);
-      load(false);
-      console.log(json);
-})
-      .catch((error) => {
-        console.log('fetch data failed', error);
-      });
-};
-
-export const UseApiLine = (setD, load, shipName) => {
-    fetch('http://localhost:8000/line/data')
-    .then((response) => response.json())
-    .then((json) => {
-        console.log(json[shipName]);
-        setD(json[shipName]);
-        load(false);
+export const useApiTab = () => {
+  const [fetchedData, setFetchedData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState();
+  const sendRequest = (url, method = 'GET', body = null, headers = {}) => {
+    setIsLoading(true);
+    fetch(url, {
+      method,
+      body,
+      headers,
     })
-    .catch((error) => {
-        console.log('fetch data failed', error);
-    });
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error(response.message);
+          }
+          return response.json();
+        })
+        .then((json) => {
+          setIsLoading(false);
+          setFetchedData(json);
+        })
+        .catch((err) => {
+          setError(err.message);
+          setIsLoading(false);
+          throw err;
+        });
+  };
+  return {fetchedData, isLoading, error, sendRequest};
 };
 
-export default UseApi;
+export const useApiCol = () => {
+  const [fetchedColumn, setFetchedColumn] = useState([]);
+  const [error, setError] = useState();
+  const fetchColumn = (url, method = 'GET', body = null, headers = {}) => {
+    fetch(url, {
+      method,
+      body,
+      headers,
+    })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error(response.message);
+          }
+          return response.json();
+        })
+        .then((json) => {
+          setFetchedColumn(json);
+        })
+        .catch((err) => {
+          setError(err.message);
+          throw err;
+        });
+  };
+  return {fetchedColumn, error, fetchColumn};
+};
+
+export default useApiTab;
+
+
