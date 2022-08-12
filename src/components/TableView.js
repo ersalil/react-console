@@ -15,7 +15,7 @@ function TableView(props) {
 
   // fetch data from api
   useEffect(() => {
-    sendRequest(`${process.env.API_URL}`+`${process.env.TABLE_ROUTE}`);
+    sendRequest(`${process.env.REACT_APP_API_URL}`+`${process.env.REACT_APP_TABLE_ROUTE}`);
   }, []);
   useEffect(() => {
     if (fetchedData !== undefined) {
@@ -25,11 +25,12 @@ function TableView(props) {
 
   // fetch columns from api
   useEffect(() => {
-    fetchColumn(`${process.env.API_URL}`+`${process.env.TABLE_COL_ROUTE}`);
+    fetchColumn(`${process.env.REACT_APP_API_URL}`+`${process.env.REACT_APP_TABLE_COL_ROUTE}`);
   }, []);
   useEffect(() => {
     if (fetchedColumn !== undefined) {
       setColData(fetchedColumn);
+      console.log(fetchedColumn);
     }
   }, [fetchedColumn]);
 

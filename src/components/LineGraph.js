@@ -23,7 +23,7 @@ const LineGraph = (props) => {
   const {sendRequest, fetchedData, isLoading} = useApiLine();
 
   useEffect(() => {
-    sendRequest(`${process.env.API_URL}`+`${process.env.LINEGRAPH_ROUTE}`);
+    sendRequest(`${process.env.REACT_APP_API_URL}`+`${process.env.REACT_APP_LINEGRAPH_ROUTE}`);
   }, []);
   useEffect(() => {
     if (fetchedData !== undefined) {
