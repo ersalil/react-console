@@ -17,7 +17,7 @@ const BarGraph = () => {
 
   // fetch data from api
   useEffect(() => {
-    sendRequest(`${process.env.REACT_APP_FETCH_BAR}`);
+    sendRequest(`${process.env.API_URL}`+`${process.env.BARGRAPH_ROUTE}`);
   }, []);
   useEffect(() => {
     if (fetchedData !== undefined) {
