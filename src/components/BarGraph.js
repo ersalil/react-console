@@ -35,11 +35,11 @@ const BarGraph = () => {
   };
 
   // changing axis for checkedin and onboard data
-  let yaxis = 'avg_checkedin_couch';
-  let xaxis = 'checkedin_time';
+  let yaxis = 'avg_checkedin_count';
+  let xaxis = 'time_int';
   if (isToggled) {
-    yaxis = 'avg_onboard_couch';
-    xaxis = 'onboard_time';
+    yaxis = 'avg_onboard_count';
+    xaxis = 'time_int';
   }
 
   const config = {

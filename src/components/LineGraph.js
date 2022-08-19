@@ -42,11 +42,11 @@ const LineGraph = (props) => {
   };
 
   // changing axis for checkedin and onboard data
-  let yaxis = 'checkedin_couch';
-  let xaxis = 'checkedin_time';
+  let yaxis = 'diff_checkedin_couch';
+  let xaxis = 'time_int';
   if (isToggled) {
-    xaxis = 'onboard_time';
-    yaxis = 'onboard_couch';
+    xaxis = 'time_int';
+    yaxis = 'diff_onboard_couch';
   }
   const config = {
     data,
@@ -76,7 +76,7 @@ const LineGraph = (props) => {
       },
     ],
 
-    seriesField: 'voyage_id',
+    seriesField: 'vnum',
 
     legend: {
       position: 'top',
