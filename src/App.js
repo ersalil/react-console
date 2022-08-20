@@ -10,6 +10,7 @@ import React, {useState} from "react";
 import {Layout, Col, Row} from "antd";
 import "./App.css";
 import "./style/Common.css";
+// import "./../"
 // import LanguageButton from './components/LanguageButton';
 // import i18n from '../src/translations/i18n';
 // import { useState } from 'react';
@@ -54,10 +55,12 @@ function App() {
 				</Row>
 			</div>
 			<footer className="footer">
-						Copyright © 2022 DeCurtis Corporation
+						<span id = "left-foot" style={{"float":"left"}}>{process.env.REACT_APP_VERSION} </span>
+						<span id = "right-foot" style={{"float":"right"}}>Copyright © 2022 DeCurtis Corporation</span>
 			</footer>
 		</Layout>
 	);
 }
 
 export default App;
+

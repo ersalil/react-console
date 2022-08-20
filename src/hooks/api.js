@@ -4,9 +4,13 @@ import {useState} from 'react';
 
 /* eslint-disable require-jsdoc */
 
+// function for fetching data from api for bar graph 
 export const useApiBar = () => {
+  // state for storing data
   const [fetchedData, setFetchedData] = useState([]);
+  // state for storing loading status
   const [isLoading, setIsLoading] = useState(true);
+  // state for storing error status
   const [error, setError] = useState();
   const sendRequest = (url, method = 'GET', body = null, headers = {}) => {
     setIsLoading(true);
