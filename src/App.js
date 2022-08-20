@@ -55,8 +55,8 @@ function App() {
 				</Row>
 			</div>
 			<footer className="footer">
-						<span id = "left-foot" style={{"float":"left"}}>{process.env.REACT_APP_VERSION} </span>
-						<span id = "right-foot" style={{"float":"right"}}>Copyright © 2022 DeCurtis Corporation</span>
+						<span id = "left-foot" style={{"float": "left"}}>{process.env.REACT_APP_VERSION} </span>
+						<span id = "right-foot" style={{"float": "right"}}>Copyright © 2022 DeCurtis Corporation</span>
 			</footer>
 		</Layout>
 	);
