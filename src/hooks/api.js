@@ -1,6 +1,7 @@
 /* eslint-disable linebreak-style */
 
 import {useState} from 'react';
+import {v4 as uuidv4} from 'uuid';
 
 /* eslint-disable require-jsdoc */
 
@@ -12,7 +13,7 @@ export const useApiBar = () => {
   const [isLoading, setIsLoading] = useState(true);
   // state for storing error status
   const [error, setError] = useState();
-  const sendRequest = (url, method = 'GET', body = null, headers = {}) => {
+  const sendRequest = (url, method = 'GET', body = null, headers = {'x-request-id': uuidv4()}) => {
     setIsLoading(true);
     fetch(url, {
       method,
@@ -43,7 +44,7 @@ export const useApiLine = () => {
   const [fetchedData, setFetchedData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState();
-  const sendRequest = (url, method = 'GET', body = null, headers = {}) => {
+  const sendRequest = (url, method = 'GET', body = null, headers = {'x-request-id': uuidv4()}) => {
     setIsLoading(true);
     fetch(url, {
       method,
@@ -73,7 +74,7 @@ export const useApiTab = () => {
   const [fetchedData, setFetchedData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState();
-  const sendRequest = (url, method = 'GET', body = null, headers = {}) => {
+  const sendRequest = (url, method = 'GET', body = null, headers = {'x-request-id': uuidv4()}) => {
     setIsLoading(true);
     fetch(url, {
       method,
@@ -102,7 +103,7 @@ export const useApiTab = () => {
 export const useApiCol = () => {
   const [fetchedColumn, setFetchedColumn] = useState([]);
   const [error, setError] = useState();
-  const fetchColumn = (url, method = 'GET', body = null, headers = {}) => {
+  const fetchColumn = (url, method = 'GET', body = null, headers = {'x-request-id': uuidv4()}) => {
     fetch(url, {
       method,
       body,
