@@ -5,6 +5,6 @@ services:
       context: .
     ports:
       - 23000:80
-    image: sre-embarkation-manifest-frontend:1.4.0
+    image: sre-embarkation-manifest-frontend:1.5.0
     container_name: sre-embarkation-manifest-frontend
     restart: unless-stopped
